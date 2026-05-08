@@ -1,0 +1,2 @@
+onthology.md provides functionnal context. Use ai-dev-tasks/create-prd.md to create a prd. The game will have a rust backend, a postgres database, and a unreal engine 5 frontend. Use docker-compose for the full stack management and flake.nix files for the backend, and the frontend. Use quic for exchange protocol between front and back, documented with json schemas at project root.
+Ask everything which isn't clear before creating the prd
