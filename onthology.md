@@ -6,6 +6,8 @@
 ### Entities and relations:
 ## Focus on Ships and combat aspects:
 - Ships all have a Shield, an Armor and some Energy.
+    - Energy continuously regenerates over time.
+    - A ship is destroyed when its Armor reaches zero.
 - 3 damage types exist:
     - Electromagnetic: powerful against Shields, usually weak against Armors
     - Kinetic: powerful against Armor, usually weak against Shields
@@ -14,7 +16,7 @@
     - Frigates can have Role: Engineer (= healer), Long Range (sniper), or Guard (Tank)
     - Fighters can have Role: Tacklers (Can go invisible), GunShip, or Command (Buff)
     - Interceptors can have Role: Cover Ops (like ninja), Recon (Detection capabilities), or ECM (Electronic Counter Measure)
-- Each Ship Role have a special module type, which can be activated with a special key:
+- Each Ship Role have a special module type, which can be activated with a special key. The special module occupies a dedicated 5th slot, separate from the 4 Active Combat Module slots:
     - Engineers have drones (heals Shield on key pressed)
     - Long Ranges have sniper Weapon (toggle on / off on key pressed, then shoot like a regular Weapon)
     - Guard have phasic Shield (toggle improved resistance over Thermic / Electromagnetic / Kinetic on key pressed)
@@ -35,15 +37,16 @@
 - Active Combat Modules have seevral possible activation flow:
     - "One Shot": Push activates => provide effect, consumes a finite energy amount, and wait for cooldown
     - "Ongoing": Push toggle on/off => "on" provides effect while continuosly consuming energy. May have cooldown before going "on" again
-- Ships can equip Weapons proper to their size (Weapons for Frigates, for Fighters, or for Interceptors)
+- Ships can equip exactly 1 Weapon proper to their size (Weapons for Frigates, for Fighters, or for Interceptors). Multiple weapon types exist per size class (e.g., different fire rates, damage per shot, heat generation).
+- Ship movement uses arcade-style physics (speed cap, drag, instant acceleration) rather than Newtonian simulation.
 - Weapons overload if used for a long period of time, and require to cool down.
 - Overheating a Weapon adds up more time for cooling, so it's better to avoid overheating to optimize shooting in long periods
-- Ships can shoot Missiles
+- Ships can shoot Missiles from exactly 1 Missile launcher. Missiles have distinct flight and damage behavior from weapons.
 
 ## User Environment:
 # Build time: The User build his Ships set
 - The User can buy Ships for himself by picking the Ship Model he wants inside the Ships Arborescence
-- The User can equip Passive Combat Modules, Active Combat Modules, a Weapon, and Missiles on his Ships
+- The User can equip on each ship: Passive Combat Modules (within the ship model's fixed slot layout), up to 4 Active Combat Modules, 1 Weapon, and 1 Missile launcher.
 - The User can equip up to 4 Ships in his Hangar, leaving the other Ships unused
 
 # Play time: The User Participates into a Game instance
