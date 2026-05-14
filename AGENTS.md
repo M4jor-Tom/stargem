@@ -9,11 +9,12 @@
 | `server/` | Rust backend | `git@github.com:M4jor-Tom/stargem_backend.rs.git` |
 | `client/` | C++ (Unreal) frontend | `git@github.com:M4jor-Tom/stargem_frontend.cpp.git` |
 | `ai-dev-tasks/` | AI-assisted dev workflow prompts | `git@github.com:snarktank/ai-dev-tasks.git` |
+| `stargem_protos/` | Proto definitions | `git@github.com:M4jor-Tom/stargem_protos.git` |
 | `onthology.md` | Game design doc (entities, damage types, ship roles) | — |
 
 ## Submodule workflow
 
-The two code submodules (`client/`, `server/`) are **not checked out** in the default clone. You must explicitly init them:
+The three code submodules (`client/`, `server/`, `stargem_protos/`) are **not checked out** in the default clone. You must explicitly init them:
 
 ```bash
 git submodule update --init --recursive
@@ -21,8 +22,9 @@ git submodule update --init --recursive
 
 Individual submodule:
 ```bash
-git submodule update --init server   # Rust backend only
-git submodule update --init client   # C++/Unreal frontend only
+git submodule update --init server          # Rust backend only
+git submodule update --init client          # C++/Unreal frontend only
+git submodule update --init stargem_protos  # Proto definitions only
 ```
 
 Changes to submodule source should be committed **inside** the submodule repo, not in this root repo. The root only tracks submodule pointer commits.
@@ -37,4 +39,12 @@ Changes to submodule source should be committed **inside** the submodule repo, n
 
 ## Commands
 
-No root-level build/test/lint commands exist — run those inside the submodule directories.
+| Command | Description |
+|---|---|
+| `just docker-image` | Build Docker image via Nix (`nix build ./server#dockerImage && docker load < result`) |
+| `just build` | Build backend release via crane (`nix build ./server`) |
+| `just up` | Start services via podman-compose |
+| `just up-docker` | Build Docker image then start services |
+| `just test` | Run backend tests |
+| `just lint` | Run clippy |
+| `just fmt` | Format Rust code |

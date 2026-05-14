@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  backend:
+    image: stargem-backend:latest
+    ports:
+      - "50051:50051"   # gRPC
+      - "50052:50052/udp"  # QUIC
+    environment:
+      - DATABASE_URL=postgres://stargem:stargem@postgres:5432/stargem
+      - GRPC_ADDR=0.0.0.0:50051
+      - QUIC_ADDR=0.0.0.0:50052
+      - RUST_LOG=info
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: stargem
+      POSTGRES_PASSWORD: stargem
+      POSTGRES_DB: stargem
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U stargem"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  adminer:
+    image: adminer:latest
+    ports:
+      - "8080:8080"
+    profiles:
+      - dev
+
+volumes:
+  pgdata:

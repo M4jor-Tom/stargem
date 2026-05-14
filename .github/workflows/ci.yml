@@ -1,0 +1,47 @@
+name: CI
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: DeterminateSystems/nix-installer-action@v4
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
+
+      - name: cargo fmt --check
+        run: nix develop ./server -c cargo fmt --check
+
+      - name: cargo clippy
+        run: nix develop ./server -c cargo clippy -- -D warnings
+
+      - name: cargo test
+        run: nix develop ./server -c cargo test
+
+      - name: Proto drift check
+        run: nix develop ./server -c bash stargem_protos/verify.sh
+
+      - name: Build Docker image
+        run: |
+          nix build .#dockerImage
+          docker load < result
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Verify UE5 project placeholder
+        run: test -f client/README.md
