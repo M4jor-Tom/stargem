@@ -67,7 +67,7 @@ Generated from `tasks/backlog/prd-stargem-mvp.md` using `ai-dev-tasks/generate-t
 ### [ ] 1.0 Development Environment & Infrastructure
 
 - [ ] 1.1 Create `flake.nix` (root) with `devShells.default` providing `podman`, `podman-compose`, `just`. Must NOT include Rust or UE5 dependencies.
-- [ ] 1.2 Create `server/flake.nix` with `devShells.default` and `packages.default` providing `rustc`, `cargo`, `sqlx-cli`, `protoc`, `openssl`, and system build deps.
+- [ ] 1.2 Create `server/flake.nix` with `devShells.default` and `packages.default` providing `rustc`, `cargo`, `protoc`, `openssl`, and system build deps.
 - [ ] 1.3 Create `client/flake.nix` with `devShells.default` providing Unreal Engine 5 build dependencies (placeholder structure — exact UE5 deps depend on the environment).
 - [ ] 1.4 Create `docker-compose.yml` orchestrating:
       - `backend` service (build from `server/Dockerfile`, expose gRPC and QUIC ports)
@@ -168,9 +168,9 @@ Generated from `tasks/backlog/prd-stargem-mvp.md` using `ai-dev-tasks/generate-t
 
 > **TODO:** This task is stubbed. Full implementation deferred.
 
-- [ ] 4.1 TODO: Create SQL migration files for: users (steam_id), credit_balance, ship_models (seed/immutable catalog), player_ships (user-owned, linked to ship_model), loadout_configs, hangar_assignments
+- [ ] 4.1 TODO: Create raw SQL files (`server/sql/schema.sql`, `server/sql/seed.sql`) for: users, credit_balance, ship_models (seed catalog), player_ships, loadout_configs, hangar_assignments
 - [ ] 4.2 TODO: Create seed config file for ship models with fixed passive module slots per model (YAML/TOML under `server/config/ships/`)
-- [ ] 4.3 TODO: Integrate `sqlx migrate` in the backend startup (prepare but don't auto-run)
+- [ ] 4.3 TODO: Load `schema.sql` and `seed.sql` on backend startup via `sqlx::raw_sql`
 
 ### [ ] 5.0 Pluggable Authentication Module
 

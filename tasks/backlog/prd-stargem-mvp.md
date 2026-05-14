@@ -50,7 +50,7 @@ The MVP delivers one playable game mode, a ship hangar with loadout configuratio
 
 ### FR-3: Database & Persistence (PostgreSQL)
 - FR-3.1: PostgreSQL must store: users (linked to Steam ID), credit balance, owned ship models, loadout configurations, hangar assignments.
-- FR-3.2: The backend must be able to integrate migrations (e.g., `sqlx migrate`) to manage schema changes, but not implement it yet.
+- FR-3.2: The backend must load schema from raw SQL files (`schema.sql`, `seed.sql`) on startup, using `sqlx::raw_sql` or equivalent.
 - FR-3.3: The database schema must support the full ship/loadout model from `onthology.md` (ship sizes, roles, modules, weapons, missiles).
 - FR-3.4: Each ship model must define its fixed passive module slots (e.g., 1 Shield, 2 Armor, 1 Capacitor, 0 Motor, 1 Computer) in a seed/config file, not in application code.
 
