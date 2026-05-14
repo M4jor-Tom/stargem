@@ -1,6 +1,6 @@
 # Task List: Stargem MVP
 
-Generated from `tasks/backlog/prd-stargem-mvp.md` using `ai-dev-tasks/generate-tasks.md`.
+Generated from `tasks/backlog/prd-stargem-mvp.md` using `ai-dev-tasks/backlog/generate-tasks.md`.
 
 ## Task Summary
 
