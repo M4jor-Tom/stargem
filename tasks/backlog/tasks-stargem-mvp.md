@@ -43,7 +43,7 @@ Generated from `tasks/backlog/prd-stargem-mvp.md` using `ai-dev-tasks/generate-t
 - `server/Cargo.toml` — Rust dependencies (tonic, quinn, tokio, serde, etc.)
 - `server/build.rs` — tonic-build proto compilation
 - `server/src/main.rs` — Entry point, server bootstrap
-- `server/src/ship/model.rs` — Ship structs, sizes, roles
+- `server/src/ship/model.rs` — ShipModel, PlayerShip, ShipSize, ShipRole
 - `server/src/ship/stats.rs` — Hull stats (shield, armor, energy)
 - `server/src/ship/modules.rs` — Passive module definitions + slot layout
 - `server/src/ship/active_modules.rs` — Active module definitions + activation flows
@@ -124,13 +124,14 @@ Generated from `tasks/backlog/prd-stargem-mvp.md` using `ai-dev-tasks/generate-t
 - [ ] 3.1 Create `server/Cargo.toml` with dependencies: `tokio`, `tonic`, `tonic-build`, `quinn`, `prost`, `serde`, `clap` (for CLI config), `tracing`
 - [ ] 3.2 Create `server/build.rs` — compile all `.proto` files via `tonic-build`
 - [ ] 3.3 Create `server/src/main.rs` — CLI arg parsing (tick rate, ports, DB URL), server bootstrap
-- [ ] 3.4 Create `server/src/ship/model.rs` — Ship model structs:
+- [ ] 3.4 Create `server/src/ship/model.rs` — Ship domain structs:
+      - `ShipModel` (immutable store entity: id, name, size, role, price, base_stats, passive_slots layout)
+      - `PlayerShip` (mutable user-owned entity: id, user_id, ship_model_id, loadout reference)
       - `ShipSize` enum (Frigate, Fighter, Interceptor)
       - `ShipRole` enum with special module per role (from `onthology.md`)
       - `HullStats` (base shield, armor, energy, speed, agility)
-      - `ShipModel` (id, name, size, role, base_stats, passive_slots layout)
-- [ ] 3.5 Create `server/src/ship/stats.rs` — `ShipInstance` with computed stats:
-      - Base stats from model + modifiers from passive modules
+- [ ] 3.5 Create `server/src/ship/stats.rs` — `PlayerShipStats` with computed stats:
+      - Base stats from linked `ShipModel` + modifiers from equipped `PassiveCombatModules`
       - Shield/Armor/Energy current + max values
 - [ ] 3.6 Create `server/src/ship/modules.rs` — Passive module system:
       - `PassiveModuleType` enum (Shield, Armor, Capacitor, Motor, Computer)
@@ -167,7 +168,7 @@ Generated from `tasks/backlog/prd-stargem-mvp.md` using `ai-dev-tasks/generate-t
 
 > **TODO:** This task is stubbed. Full implementation deferred.
 
-- [ ] 4.1 TODO: Create SQL migration files for: users (steam_id), credit_balance, owned_ship_models, loadout_configs, hangar_assignments
+- [ ] 4.1 TODO: Create SQL migration files for: users (steam_id), credit_balance, ship_models (seed/immutable catalog), player_ships (user-owned, linked to ship_model), loadout_configs, hangar_assignments
 - [ ] 4.2 TODO: Create seed config file for ship models with fixed passive module slots per model (YAML/TOML under `server/config/ships/`)
 - [ ] 4.3 TODO: Integrate `sqlx migrate` in the backend startup (prepare but don't auto-run)
 

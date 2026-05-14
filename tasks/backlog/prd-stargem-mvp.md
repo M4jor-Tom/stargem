@@ -67,10 +67,13 @@ The MVP delivers one playable game mode, a ship hangar with loadout configuratio
 - FR-5.5: Messages must be versioned to allow future protocol evolution.
 
 ### FR-6: Ship & Combat Systems (Backend)
-- FR-6.1: The backend must implement the ship model from `onthology.md`: sizes (Frigate, Fighter, Interceptor), roles with their special modules, shield/armor/energy stats.
+- FR-6.1: The backend must implement the ship domain model from `onthology.md`, distinguishing between:
+      - `ShipModel` (immutable store entities, each with a `price`, base stats (shield/armor/energy), a `ShipSize`, and a `ShipRole`)
+      - `PlayerShip` (mutable entities owned by users, each referencing a `ShipModel`, with an equipable loadout)
+      - `ShipSize` enum (Frigate, Fighter, Interceptor) and `ShipRole` enum with their associated `SpecialCombatModule` (per `onthology.md`)
 - FR-6.2: The damage type system (Electromagnetic > Shield, Kinetic > Armor, Thermic balanced) must be implemented with configurable multipliers.
-- FR-6.3: Passive combat modules must modify ship stats (e.g., "+X% shield HP", "-Y% armor HP + speed bonus").
-- FR-6.4: Active combat modules must support two activation flows: "One Shot" (instant effect, energy cost, cooldown) and "Ongoing" (toggle, continuous energy drain, cooldown between activations).
+- FR-6.3: `PassiveCombatModules` must modify ship stats (e.g., "+X% shield HP", "-Y% armor HP + speed bonus").
+- FR-6.4: `ActiveCombatModules` must support two activation flows: "One Shot" (instant effect, energy cost, cooldown) and "Ongoing" (toggle, continuous energy drain, cooldown between activations).
 - FR-6.5: Weapons must differentiate across multiple types per size class (e.g., different fire rates, damage per shot, heat generation). Weapons are not limited to one generic weapon per size.
 - FR-6.6: Weapons must have an overheat mechanic: sustained fire increases heat, overheating forces a longer cooldown period.
 - FR-6.7: Ships must be able to fire missiles with distinct flight and damage behavior.
