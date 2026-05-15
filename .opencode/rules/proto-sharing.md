@@ -2,7 +2,7 @@
 
 - Source of truth: dedicated proto repository
 - Root monorepo pins it as a submodule at `protos/`
-- Each subproject references it as a Nix flake input
-- Root flake overrides the input to `path:./protos` for local dev
-- Rust build scripts read `$PROTO_SRC` env var (never hardcoded paths)
-- To update protos: edit in protos/, commit+push submodule, update flake lock
+- Each subproject commits its generated files
+- The root's CI checks that building the protos does not generate diff into submodules
+- Each submodule is proto-agnostic, and is able to run on its own. They still can build protos from ../protos if present
+- To update protos: edit in protos/, generate protos for each submodule, commit+push submodule
