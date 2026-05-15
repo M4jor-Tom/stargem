@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package stargem.loadout;
+
+service LoadoutService {
+  rpc EquipPassiveModule(EquipPassiveModuleRequest) returns (EquipLoadoutResponse);
+  rpc EquipActiveModule(EquipActiveModuleRequest) returns (EquipLoadoutResponse);
+  rpc EquipWeapon(EquipWeaponRequest) returns (EquipLoadoutResponse);
+  rpc EquipMissile(EquipMissileRequest) returns (EquipLoadoutResponse);
+}
+
+message Loadout {
+  repeated string passive_module_ids = 1;
+  repeated string active_module_ids = 2;
+  string weapon_id = 3;
+  string missile_id = 4;
+}
+
+message EquipPassiveModuleRequest {
+  string player_ship_id = 1;
+  int32 slot_index = 2;
+  string module_id = 3;
+}
+
+message EquipActiveModuleRequest {
+  string player_ship_id = 1;
+  int32 slot_index = 2;
+  string module_id = 3;
+}
+
+message EquipWeaponRequest {
+  string player_ship_id = 1;
+  string weapon_id = 2;
+}
+
+message EquipMissileRequest {
+  string player_ship_id = 1;
+  string missile_id = 2;
+}
+
+message EquipLoadoutResponse {
+  bool success = 1;
+  Loadout loadout = 2;
+  string error = 3;
+}

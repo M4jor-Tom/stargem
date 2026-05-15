@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package stargem.hangar;
+
+service HangarService {
+  rpc ListHangar(ListHangarRequest) returns (ListHangarResponse);
+  rpc AssignShipToSlot(AssignShipToSlotRequest) returns (AssignShipToSlotResponse);
+}
+
+message HangarSlot {
+  int32 slot_index = 1;
+  string ship_model_id = 2;
+  string loadout_id = 3;
+}
+
+message ListHangarRequest {}
+
+message ListHangarResponse {
+  repeated HangarSlot slots = 1;
+}
+
+message AssignShipToSlotRequest {
+  int32 slot_index = 1;
+  string player_ship_id = 2;
+}
+
+message AssignShipToSlotResponse {
+  bool success = 1;
+  string error = 2;
+}

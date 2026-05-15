@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package stargem.quic.combat;
+
+import "quic/common.proto";
+
+message PlayerInput {
+  uint32 version = 1;
+  float throttle = 2;
+  float yaw = 3;
+  float pitch = 4;
+  float roll = 5;
+  bool shoot = 6;
+  int32 activate_module = 7;
+  int64 timestamp = 8;
+}
+
+message ShipState {
+  uint32 version = 1;
+  common.Vector3 position = 2;
+  common.Vector3 velocity = 3;
+  common.Quaternion rotation = 4;
+  float shield_hp = 5;
+  float armor_hp = 6;
+  float energy = 7;
+  float heat_level = 8;
+}
+
+message DamageEvent {
+  uint32 version = 1;
+  common.PlayerId source = 2;
+  common.PlayerId target = 3;
+  string damage_type = 4;
+  float raw_amount = 5;
+  float mitigated_amount = 6;
+}
+
+message ModuleActivation {
+  uint32 version = 1;
+  string module_id = 2;
+  string activation_type = 3;
+  string target_id = 4;
+}
+
+message WeaponOverheat {
+  uint32 version = 1;
+  string weapon_id = 2;
+  float heat_percentage = 3;
+  bool overheated = 4;
+}
+
+message MissileLaunch {
+  uint32 version = 1;
+  string missile_id = 2;
+  string launcher_id = 3;
+  common.PlayerId target = 4;
+  common.Vector3 position = 5;
+  common.Vector3 velocity = 6;
+}
+
+message GameStateSnapshot {
+  uint32 version = 1;
+  uint32 tick_number = 2;
+  repeated ShipState players = 3;
+  repeated DamageEvent damage_events = 4;
+  repeated MissileLaunch missile_states = 5;
+}

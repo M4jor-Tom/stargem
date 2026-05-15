@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package stargem.matchmaking;
+
+service MatchmakingService {
+  rpc QueueForMatch(QueueForMatchRequest) returns (QueueForMatchResponse);
+  rpc QueueStatus(QueueStatusRequest) returns (QueueStatusResponse);
+  rpc LeaveQueue(LeaveQueueRequest) returns (LeaveQueueResponse);
+}
+
+message QueueState {
+  int32 position = 1;
+  int32 estimated_wait_seconds = 2;
+  string status = 3;
+}
+
+message QueueForMatchRequest {
+  string queue_type = 1;
+}
+
+message QueueForMatchResponse {
+  bool queued = 1;
+  QueueState state = 2;
+}
+
+message QueueStatusRequest {}
+
+message QueueStatusResponse {
+  QueueState state = 1;
+}
+
+message LeaveQueueRequest {}
+
+message LeaveQueueResponse {
+  bool left = 1;
+}

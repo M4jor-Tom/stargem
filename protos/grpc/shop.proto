@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package stargem.shop;
+
+service ShopService {
+  rpc ListShips(ListShipsRequest) returns (ListShipsResponse);
+  rpc BuyShip(BuyShipRequest) returns (BuyShipResponse);
+}
+
+message ShipModel {
+  string id = 1;
+  string name = 2;
+  string size = 3;
+  string role = 4;
+  int32 price = 5;
+}
+
+message ListShipsRequest {}
+
+message ListShipsResponse {
+  repeated ShipModel ships = 1;
+}
+
+message BuyShipRequest {
+  string ship_model_id = 1;
+}
+
+message BuyShipResponse {
+  bool success = 1;
+  string player_ship_id = 2;
+  string error = 3;
+}
