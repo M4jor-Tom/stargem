@@ -31,11 +31,11 @@ down-dev *flags="":
 logs *flags="":
   podman-compose logs -f {{flags}}
 
-# Regenerate proto stubs from protos/
+# Regenerate proto stubs from protos/ and format them
 proto:
-  nix develop ./server -c bash -c "cd server && PROTO_SRC=../protos cargo build"
+  nix develop ./server -c bash -c "cd server && PROTO_SRC=../protos cargo build && cargo fmt"
 
-# Check that committed proto stubs are up-to-date with protos/
+# Check that committed proto stubs are up-to-date with protos/ and formatted
 proto-check:
-  nix develop ./server -c bash -c "cd server && PROTO_SRC=../protos cargo build"
+  nix develop ./server -c bash -c "cd server && PROTO_SRC=../protos cargo build && cargo fmt"
   git -C server diff --exit-code
