@@ -12,8 +12,12 @@ up *flags="":
   podman-compose up {{flags}}
 
 # Build Docker image and start services
-up-dev *flags="": docker-image
-  podman-compose --profile dev up {{flags}}
+up-docker: docker-image
+  podman-compose up
+
+# Start with dev profile (includes adminer), auto-build image
+up-dev: docker-image
+  podman-compose --profile dev up
 
 # Stop services
 down *flags="":
