@@ -1,62 +1,67 @@
 # stargem
 
-**Monorepo shell** that assembles two submodules plus AI workflow prompts.
+**Monorepo shell** that assembles git submodules.
 
-## Repository structure
+## Submodules
 
-| Path | Description | Source |
-|---|---|---|
-| `server/` | Rust backend | `git@github.com:M4jor-Tom/stargem_backend.rs.git` |
-| `client/` | C++ (Unreal) frontend | `git@github.com:M4jor-Tom/stargem_frontend.cpp.git` |
-| `ai-dev-tasks/` | AI-assisted dev workflow prompts | `git@github.com:snarktank/ai-dev-tasks.git` |
-| `protos/` | Proto definitions (submodule) | `git@github.com:M4jor-Tom/stargem_protos.git` |
-| `onthology.md` | Game design doc (entities, damage types, ship roles) | — |
+Not checked out in a default clone — you **must** init them explicitly:
 
-## Submodule workflow
+| Path | Source |
+|---|---|
+| `server/` | `github:M4jor-Tom/stargem_backend.rs.git` |
+| `client/` | `github:M4jor-Tom/stargem_frontend.cpp.git` |
+| `.opencode/rules/` | `github:M4jor-Tom/rules.md.git` |
+| `ai-dev-tasks/` | `github:snarktank/ai-dev-tasks.git` |
 
-The three code submodules (`client/`, `server/`, `protos/`) are **not checked out** in the default clone. You must explicitly init them:
-
-```bash
+```
 git submodule update --init --recursive
 ```
 
-Individual submodule:
-```bash
-git submodule update --init server          # Rust backend only
-git submodule update --init client          # C++/Unreal frontend only
-git submodule update --init protos  # Proto definitions only
-```
-
-Changes to submodule source should be committed **inside** the submodule repo, not in this root repo. The root only tracks submodule pointer commits.
-
-## Proto sharing
-
-| Principle | Description |
-|---|---|
-| **Source of truth** | The `protos/` submodule pins the canonical proto repository. |
-| **Generated code** | Each subproject commits its generated proto stubs (`server/src/proto_gen/`). |
-| **CI drift check** | Regenerating from `protos/` must produce no diff — ensures stubs are fresh. |
-| **Local regeneration** | Run `just proto` to regenerate stubs after editing `protos/`. |
-| **Update workflow** | Edit in `protos/`, run `just proto`, commit+push each submodule. |
-
-## Game design reference
-
-`onthology.md` is the single source of truth for game mechanics: damage type interactions (Electromagnetic/Kinetic/Thermic), ship sizes (Frigate/Fighter/Interceptor) and roles, special modules, and combat module system.
-
-## AI dev tasks
-
-`ai-dev-tasks/` contains markdown prompts (`create-prd.md`, `generate-tasks.md`) for structured AI-assisted feature development. It is a git submodule of `github.com:snarktank/ai-dev-tasks.git`.
+Commit changes **inside** the submodule repo, not in the root.
 
 ## Commands
 
-| Command | Description |
+Everything runs via `nix develop ./server -c <cmd>` — don't call `cargo` directly.
+
+| Command | What it does |
 |---|---|
-| `just docker-image` | Build Docker image via Nix (`nix build ./server#dockerImage && docker load < result`) |
-| `just build` | Build backend release via crane (`nix build ./server`) |
-| `just up` | Start services via podman-compose |
-| `just up-docker` | Build Docker image then start services |
-| `just test` | Run backend tests |
-| `just lint` | Run clippy |
-| `just fmt` | Format Rust code |
+| `just build` | Release build (`nix build ./server`) |
+| `just build-dev` | Debug build (`cargo build`) |
+| `just test` | `cargo test` |
+| `just lint` | `cargo clippy -- -D warnings` |
+| `just fmt` | `cargo fmt` |
+| `just fmt-check` | `cargo fmt --check` |
 | `just proto` | Regenerate proto stubs from `protos/` |
-| `just proto-check` | Check committed stubs match `protos/` |
+| `just proto-check` | Regenerate + fail if `server/` has unstaged changes |
+| `just docker-image` | Build Docker image via Nix + `skopeo copy` |
+| `just up` / `just down` | `podman-compose up` / down |
+| `just up-docker` | Build image + start services |
+| `just up-dev` / `just down-dev` | with dev profile (adminer) |
+| `just logs` | `podman-compose logs -f` |
+
+## CI order (`.github/workflows/ci.yml`)
+
+1. `cargo fmt --check`
+2. `cargo clippy -- -D warnings`
+3. `cargo test`
+4. Proto drift check (rebuild from `protos/`, `git -C server diff --exit-code`)
+5. Build Docker image
+
+## Proto stubs
+
+`server/build.rs` generates stubs **only when `PROTO_SRC` is set**. Without it, `cargo build` uses the committed stubs in `server/src/proto_gen/`. See `.opencode/rules/proto-sharing.md`.
+
+## Architecture
+
+- **Two transports**: gRPC (tonic, TCP/50051) and QUIC (quinn, UDP/50052).
+- **Proto stubs**: tonic-build generates gRPC server stubs + QUIC message structs; committed in `server/src/proto_gen/`.
+- **Docker**: `pkgs.dockerTools.buildImage` in `server/image.nix`, no Dockerfile. Use `skopeo copy --policy containers/policy.json` to load. See `.opencode/rules/docker-images.md`.
+- **Database**: PostgreSQL via `docker-compose.yml`. Schema in `server/sql/`.
+- **Config**: TOML under `server/config/` (e.g., `damage_multipliers.toml`).
+- **Game design**: `onthology.md` — damage types, ship roles, special modules.
+- **AI dev tasks**: `ai-dev-tasks/` has structured prompt templates (`create-prd.md`, `generate-tasks.md`).
+- **Rust builds**: Use `github:ipetkov/crane` per `.opencode/rules/rust-builds.md`.
+
+## Loaded instructions
+
+`.opencode/rules/*.md` (a submodule) provides repo-specific guidance on Rust builds, Docker images, and proto sharing — they are loaded automatically by opencode.json.
