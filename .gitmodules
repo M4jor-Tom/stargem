@@ -7,6 +7,6 @@
 [submodule "client"]
 	path = client
 	url = git@github.com:M4jor-Tom/stargem_frontend.cpp.git
-[submodule "stargem_protos"]
-	path = stargem_protos
+[submodule "protos"]
+	path = protos
 	url = git@github.com:M4jor-Tom/stargem_protos.git

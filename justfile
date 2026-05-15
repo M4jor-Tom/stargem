@@ -55,6 +55,11 @@ build:
 build-dev:
   nix develop ./server -c cargo build
 
-# Generate proto stubs
+# Regenerate proto stubs from protos/
 proto:
-  nix develop ./server -c cargo build
+  nix develop ./server -c bash -c "cd server && PROTO_SRC=../protos cargo build"
+
+# Check that committed proto stubs are up-to-date with protos/
+proto-check:
+  nix develop ./server -c bash -c "cd server && PROTO_SRC=../protos cargo build"
+  git -C server diff --exit-code

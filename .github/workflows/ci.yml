@@ -29,11 +29,13 @@ jobs:
         run: nix develop ./server -c cargo test
 
       - name: Proto drift check
-        run: nix develop ./server -c bash stargem_protos/verify.sh
+        run: |
+          nix develop ./server -c bash -c "cd server && PROTO_SRC=../protos cargo build"
+          git -C server diff --exit-code
 
       - name: Build Docker image
         run: |
-          nix build .#dockerImage
+          nix build ./server#dockerImage
           docker load < result
 
   frontend:
