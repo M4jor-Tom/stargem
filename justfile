@@ -5,18 +5,14 @@ default:
 
 # Build Docker image via Nix
 docker-image:
-  nix build ./server#dockerImage && docker load < result
+  nix build ./server#dockerImage && gunzip -c result | podman load
 
 # Start services (default foreground). Add -d to detach.
 up *flags="":
   podman-compose up {{flags}}
 
 # Build Docker image and start services
-up-docker: docker-image
-  podman-compose up
-
-# Start with dev profile (includes adminer)
-up-dev *flags="":
+up-dev *flags="": docker-image
   podman-compose --profile dev up {{flags}}
 
 # Stop services
