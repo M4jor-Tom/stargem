@@ -19,18 +19,10 @@ git submodule update --init --recursive
 
 Commit changes **inside** the submodule repo, not in the root.
 
-## Commands
-
-Everything runs via `nix develop ./server -c <cmd>` — don't call `cargo` directly.
+## Root commands (orchestration + proto)
 
 | Command | What it does |
 |---|---|
-| `just build` | Release build (`nix build ./server`) |
-| `just build-dev` | Debug build (`cargo build`) |
-| `just test` | `cargo test` |
-| `just lint` | `cargo clippy -- -D warnings` |
-| `just fmt` | `cargo fmt` |
-| `just fmt-check` | `cargo fmt --check` |
 | `just proto` | Regenerate proto stubs from `protos/` |
 | `just proto-check` | Regenerate + fail if `server/` has unstaged changes |
 | `just docker-image` | Build Docker image via Nix + `skopeo copy` |
@@ -39,12 +31,25 @@ Everything runs via `nix develop ./server -c <cmd>` — don't call `cargo` direc
 | `just up-dev` / `just down-dev` | with dev profile (adminer) |
 | `just logs` | `podman-compose logs -f` |
 
+Backend cargo tasks live in `server/justfile` — run from `server/`:
+
+```
+just build       # release (nix build .)
+just build-dev   # debug (cargo build)
+just test        # cargo test
+just lint        # cargo clippy -- -D warnings
+just fmt         # cargo fmt
+just fmt-check   # cargo fmt --check
+```
+
+All cargo tasks require the Nix dev shell: `nix develop ./server -c just <cmd>`.
+
 ## CI order (`.github/workflows/ci.yml`)
 
-1. `cargo fmt --check`
-2. `cargo clippy -- -D warnings`
-3. `cargo test`
-4. Proto drift check (rebuild from `protos/`, `git -C server diff --exit-code`)
+1. `just -f server/justfile fmt-check`
+2. `just -f server/justfile lint`
+3. `just -f server/justfile test`
+4. Proto drift check (rebuild from `protos/`, `git diff --exit-code`)
 5. Build Docker image
 
 ## Proto stubs

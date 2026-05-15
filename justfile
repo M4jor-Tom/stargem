@@ -31,30 +31,6 @@ down-dev *flags="":
 logs *flags="":
   podman-compose logs -f {{flags}}
 
-# Run backend tests
-test:
-  nix develop ./server -c cargo test
-
-# Run backend linter
-lint:
-  nix develop ./server -c cargo clippy -- -D warnings
-
-# Format backend code
-fmt:
-  nix develop ./server -c cargo fmt
-
-# Check formatting
-fmt-check:
-  nix develop ./server -c cargo fmt --check
-
-# Build backend release (via crane)
-build:
-  nix build ./server
-
-# Build backend (debug)
-build-dev:
-  nix develop ./server -c cargo build
-
 # Regenerate proto stubs from protos/
 proto:
   nix develop ./server -c bash -c "cd server && PROTO_SRC=../protos cargo build"

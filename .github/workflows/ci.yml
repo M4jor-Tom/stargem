@@ -20,23 +20,19 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@v2
 
       - name: cargo fmt --check
-        run: nix develop ./server -c cargo fmt --check
+        run: nix develop ./server -c just -f server/justfile fmt-check
 
       - name: cargo clippy
-        run: nix develop ./server -c cargo clippy -- -D warnings
+        run: nix develop ./server -c just -f server/justfile lint
 
       - name: cargo test
-        run: nix develop ./server -c cargo test
+        run: nix develop ./server -c just -f server/justfile test
 
       - name: Proto drift check
-        run: |
-          nix develop ./server -c bash -c "cd server && PROTO_SRC=../protos cargo build"
-          git -C server diff --exit-code
+        run: nix develop ./server -c bash -c "cd server && PROTO_SRC=../protos cargo build && git diff --exit-code"
 
       - name: Build Docker image
-        run: |
-          nix build ./server#dockerImage
-          docker load < result
+        run: nix build ./server#dockerImage && skopeo copy --policy containers/policy.json docker-archive:result containers-storage:stargem-backend:latest
 
   frontend:
     runs-on: ubuntu-latest
