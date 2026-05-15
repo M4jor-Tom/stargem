@@ -5,7 +5,7 @@ default:
 
 # Build Docker image via Nix
 docker-image:
-  nix build ./server#dockerImage && gunzip -c result | podman load
+  nix build ./server#dockerImage && skopeo copy --policy containers/policy.json docker-archive:result containers-storage:stargem-backend:latest
 
 # Start services (default foreground). Add -d to detach.
 up *flags="":

@@ -14,7 +14,7 @@
       {
         devShells.default = pkgs.mkShell {
           name = "stargem-root";
-          buildInputs = with pkgs; [ podman podman-compose just gzip ];
+          buildInputs = with pkgs; [ podman podman-compose just skopeo ];
         };
       });
 }
