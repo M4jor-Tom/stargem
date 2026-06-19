@@ -1,6 +1,3 @@
-[submodule "ai-dev-tasks"]
-	path = ai-dev-tasks
-	url = git@github.com:snarktank/ai-dev-tasks.git
 [submodule "server"]
 	path = server
 	url = git@github.com:M4jor-Tom/stargem_backend.rs.git
