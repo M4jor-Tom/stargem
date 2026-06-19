@@ -1,0 +1,277 @@
+{
+  "/home/theta/repos/stargem.nix/.opencode/package.json": {
+    "mtime": 1778799706.1401823,
+    "ast_hash": "fe30757921e184008f4788ddcf1d452c",
+    "semantic_hash": "fe30757921e184008f4788ddcf1d452c"
+  },
+  "/home/theta/repos/stargem.nix/containers/policy.json": {
+    "mtime": 1778853180.7651782,
+    "ast_hash": "c6bc04999099a399caddab61fe89e7fa",
+    "semantic_hash": "c6bc04999099a399caddab61fe89e7fa"
+  },
+  "/home/theta/repos/stargem.nix/opencode.json": {
+    "mtime": 1778800361.2897885,
+    "ast_hash": "54441319fda7cf8acc7efe19d742d1a3",
+    "semantic_hash": "54441319fda7cf8acc7efe19d742d1a3"
+  },
+  "/home/theta/repos/stargem.nix/protos/verify.sh": {
+    "mtime": 1778841274.4096687,
+    "ast_hash": "a95e6637d5290cda4d68eea582d27a8b",
+    "semantic_hash": "a95e6637d5290cda4d68eea582d27a8b"
+  },
+  "/home/theta/repos/stargem.nix/server/build.rs": {
+    "mtime": 1778866443.4809308,
+    "ast_hash": "7de8d60a6a72797a750d8788c0be3c63",
+    "semantic_hash": "7de8d60a6a72797a750d8788c0be3c63"
+  },
+  "/home/theta/repos/stargem.nix/server/sql/schema.sql": {
+    "mtime": 1781303146.267008,
+    "ast_hash": "40bfba20661730502870f88c70d7bd13",
+    "semantic_hash": "40bfba20661730502870f88c70d7bd13"
+  },
+  "/home/theta/repos/stargem.nix/server/sql/seed.sql": {
+    "mtime": 1781303153.1800532,
+    "ast_hash": "738de355b50ccd9e9a5ee843d1afc6bd",
+    "semantic_hash": "738de355b50ccd9e9a5ee843d1afc6bd"
+  },
+  "/home/theta/repos/stargem.nix/server/src/auth.rs": {
+    "mtime": 1778841399.9571295,
+    "ast_hash": "8055ca361aa24ab6aabdbff5b0a91433",
+    "semantic_hash": "8055ca361aa24ab6aabdbff5b0a91433"
+  },
+  "/home/theta/repos/stargem.nix/server/src/combat/damage.rs": {
+    "mtime": 1781303270.5428236,
+    "ast_hash": "a90aad97d0c11a727c807b0602b175e3",
+    "semantic_hash": "a90aad97d0c11a727c807b0602b175e3"
+  },
+  "/home/theta/repos/stargem.nix/server/src/combat/mod.rs": {
+    "mtime": 1781303282.9549053,
+    "ast_hash": "b9b85d7473d8765158d44fb616b6b1b0",
+    "semantic_hash": "b9b85d7473d8765158d44fb616b6b1b0"
+  },
+  "/home/theta/repos/stargem.nix/server/src/combat/physics.rs": {
+    "mtime": 1778864811.52545,
+    "ast_hash": "f94e922536f18f7253c44a76ea15a6c8",
+    "semantic_hash": "f94e922536f18f7253c44a76ea15a6c8"
+  },
+  "/home/theta/repos/stargem.nix/server/src/combat/tick.rs": {
+    "mtime": 1781303290.3679543,
+    "ast_hash": "70368cece325969c927300c07371af0b",
+    "semantic_hash": "70368cece325969c927300c07371af0b"
+  },
+  "/home/theta/repos/stargem.nix/server/src/frontend.rs": {
+    "mtime": 1778841399.9571295,
+    "ast_hash": "f84a1edea28501eed31843616b3d8cfc",
+    "semantic_hash": "f84a1edea28501eed31843616b3d8cfc"
+  },
+  "/home/theta/repos/stargem.nix/server/src/game_mode.rs": {
+    "mtime": 1778841399.9571295,
+    "ast_hash": "8a3029b10a22f6155f5d8ff061bdee2f",
+    "semantic_hash": "8a3029b10a22f6155f5d8ff061bdee2f"
+  },
+  "/home/theta/repos/stargem.nix/server/src/grpc.rs": {
+    "mtime": 1778841399.9571295,
+    "ast_hash": "cd571a1f960c21a6a45aa3c8c7bc6fa6",
+    "semantic_hash": "cd571a1f960c21a6a45aa3c8c7bc6fa6"
+  },
+  "/home/theta/repos/stargem.nix/server/src/main.rs": {
+    "mtime": 1778844952.0024614,
+    "ast_hash": "6c04feb2e5f96998714dcab579e0f4bf",
+    "semantic_hash": "6c04feb2e5f96998714dcab579e0f4bf"
+  },
+  "/home/theta/repos/stargem.nix/server/src/proto_gen/grpc/mod.rs": {
+    "mtime": 1778845071.3284612,
+    "ast_hash": "e681ef39c19b2689e7f409b47951e14d",
+    "semantic_hash": "e681ef39c19b2689e7f409b47951e14d"
+  },
+  "/home/theta/repos/stargem.nix/server/src/proto_gen/grpc/stargem.auth.rs": {
+    "mtime": 1778868241.5829315,
+    "ast_hash": "35ca1cec06db53580a5727eb39f404e6",
+    "semantic_hash": "35ca1cec06db53580a5727eb39f404e6"
+  },
+  "/home/theta/repos/stargem.nix/server/src/proto_gen/grpc/stargem.hangar.rs": {
+    "mtime": 1778868241.5839312,
+    "ast_hash": "20e95c0edfb487da0fcdabf0568b0450",
+    "semantic_hash": "20e95c0edfb487da0fcdabf0568b0450"
+  },
+  "/home/theta/repos/stargem.nix/server/src/proto_gen/grpc/stargem.loadout.rs": {
+    "mtime": 1778868241.5839312,
+    "ast_hash": "b3e198871348c17cdf4e3f881714585e",
+    "semantic_hash": "b3e198871348c17cdf4e3f881714585e"
+  },
+  "/home/theta/repos/stargem.nix/server/src/proto_gen/grpc/stargem.match_history.rs": {
+    "mtime": 1778868241.5839312,
+    "ast_hash": "2b6fc1c76e7c1354c3526b1c371ed231",
+    "semantic_hash": "2b6fc1c76e7c1354c3526b1c371ed231"
+  },
+  "/home/theta/repos/stargem.nix/server/src/proto_gen/grpc/stargem.matchmaking.rs": {
+    "mtime": 1778868241.5839312,
+    "ast_hash": "21d5bd333efbb0194a94f211ab4834af",
+    "semantic_hash": "21d5bd333efbb0194a94f211ab4834af"
+  },
+  "/home/theta/repos/stargem.nix/server/src/proto_gen/grpc/stargem.shop.rs": {
+    "mtime": 1778868241.5839312,
+    "ast_hash": "8f23a35031b293b4a3fafeaf8274c5ad",
+    "semantic_hash": "8f23a35031b293b4a3fafeaf8274c5ad"
+  },
+  "/home/theta/repos/stargem.nix/server/src/proto_gen/mod.rs": {
+    "mtime": 1781303270.0558202,
+    "ast_hash": "c0e8228b8e999c9a2b857fb331692b4a",
+    "semantic_hash": "c0e8228b8e999c9a2b857fb331692b4a"
+  },
+  "/home/theta/repos/stargem.nix/server/src/proto_gen/quic/mod.rs": {
+    "mtime": 1778845072.2214687,
+    "ast_hash": "5e7d6fb4a42e1ddea44a00c3a29ecd92",
+    "semantic_hash": "5e7d6fb4a42e1ddea44a00c3a29ecd92"
+  },
+  "/home/theta/repos/stargem.nix/server/src/proto_gen/quic/stargem.quic.combat.rs": {
+    "mtime": 1778845007.3079238,
+    "ast_hash": "ca08cf150b757d258dfbf59dfd74a94f",
+    "semantic_hash": "ca08cf150b757d258dfbf59dfd74a94f"
+  },
+  "/home/theta/repos/stargem.nix/server/src/proto_gen/quic/stargem.quic.common.rs": {
+    "mtime": 1778845007.3089237,
+    "ast_hash": "daee8ad12477de2940aa28c1df0a0a1b",
+    "semantic_hash": "daee8ad12477de2940aa28c1df0a0a1b"
+  },
+  "/home/theta/repos/stargem.nix/server/src/ship/active_modules.rs": {
+    "mtime": 1781303074.216539,
+    "ast_hash": "2cc498ce017b84f78ab3ab7a12c3043a",
+    "semantic_hash": "2cc498ce017b84f78ab3ab7a12c3043a"
+  },
+  "/home/theta/repos/stargem.nix/server/src/ship/missiles.rs": {
+    "mtime": 1781303087.4516249,
+    "ast_hash": "8a2cffb5c9d2953ee4a09f342b05b83d",
+    "semantic_hash": "8a2cffb5c9d2953ee4a09f342b05b83d"
+  },
+  "/home/theta/repos/stargem.nix/server/src/ship/mod.rs": {
+    "mtime": 1781303282.4749022,
+    "ast_hash": "3a2bf3cc94e8f2ce1ee7273e62879259",
+    "semantic_hash": "3a2bf3cc94e8f2ce1ee7273e62879259"
+  },
+  "/home/theta/repos/stargem.nix/server/src/ship/model.rs": {
+    "mtime": 1781303066.5724893,
+    "ast_hash": "e2b9ecce5745e9f70fbc44012a242a49",
+    "semantic_hash": "e2b9ecce5745e9f70fbc44012a242a49"
+  },
+  "/home/theta/repos/stargem.nix/server/src/ship/modules.rs": {
+    "mtime": 1781303070.4485145,
+    "ast_hash": "a291b8f0e6c0066cf76c2e4263b90aed",
+    "semantic_hash": "a291b8f0e6c0066cf76c2e4263b90aed"
+  },
+  "/home/theta/repos/stargem.nix/server/src/ship/stats.rs": {
+    "mtime": 1781303094.262669,
+    "ast_hash": "cae13747a91661a0e10b07394489a811",
+    "semantic_hash": "cae13747a91661a0e10b07394489a811"
+  },
+  "/home/theta/repos/stargem.nix/server/src/ship/weapons.rs": {
+    "mtime": 1781303078.6615677,
+    "ast_hash": "2038a38f9a5c976a9170806ca0770a2e",
+    "semantic_hash": "2038a38f9a5c976a9170806ca0770a2e"
+  },
+  "/home/theta/repos/stargem.nix/server/src/transport/mod.rs": {
+    "mtime": 1778801078.556685,
+    "ast_hash": "0ea95080f31b55d9bc7fa819a0ab994d",
+    "semantic_hash": "0ea95080f31b55d9bc7fa819a0ab994d"
+  },
+  "/home/theta/repos/stargem.nix/server/src/transport/quic.rs": {
+    "mtime": 1778864811.5394497,
+    "ast_hash": "5dd306ce96107ca9f5da692e26c00c14",
+    "semantic_hash": "5dd306ce96107ca9f5da692e26c00c14"
+  },
+  "/home/theta/repos/stargem.nix/.github/workflows/ci.yml": {
+    "mtime": 1778864532.2500646,
+    "ast_hash": "ddbcd3965e9b10d47a5752d22761d98b",
+    "semantic_hash": "ddbcd3965e9b10d47a5752d22761d98b"
+  },
+  "/home/theta/repos/stargem.nix/.opencode/rules/commands.md": {
+    "mtime": 1778868347.7163508,
+    "ast_hash": "aff0ba21fbd45ffafa6785937f976d92",
+    "semantic_hash": "aff0ba21fbd45ffafa6785937f976d92"
+  },
+  "/home/theta/repos/stargem.nix/.opencode/rules/docker-images.md": {
+    "mtime": 1778862200.8846784,
+    "ast_hash": "5db0c23cf0542d25a9081efd5c5ada80",
+    "semantic_hash": "5db0c23cf0542d25a9081efd5c5ada80"
+  },
+  "/home/theta/repos/stargem.nix/.opencode/rules/proto-sharing.md": {
+    "mtime": 1778860010.07131,
+    "ast_hash": "f6bcade69e0035e0a09d4e7d13c2bf85",
+    "semantic_hash": "f6bcade69e0035e0a09d4e7d13c2bf85"
+  },
+  "/home/theta/repos/stargem.nix/.opencode/rules/rust-builds.md": {
+    "mtime": 1778867878.4742026,
+    "ast_hash": "8970a4ff52be5ac10e9fd6365272e15f",
+    "semantic_hash": "8970a4ff52be5ac10e9fd6365272e15f"
+  },
+  "/home/theta/repos/stargem.nix/AGENTS.md": {
+    "mtime": 1778864536.427008,
+    "ast_hash": "10a5e83e914cf6720bf1d991bb90f849",
+    "semantic_hash": "10a5e83e914cf6720bf1d991bb90f849"
+  },
+  "/home/theta/repos/stargem.nix/ai-dev-tasks/README.md": {
+    "mtime": 1778228426.7713425,
+    "ast_hash": "3785184e86d4a0ec4f3078a4d5858e12",
+    "semantic_hash": "3785184e86d4a0ec4f3078a4d5858e12"
+  },
+  "/home/theta/repos/stargem.nix/ai-dev-tasks/create-prd.md": {
+    "mtime": 1778228426.7713425,
+    "ast_hash": "b8758577ffa5cfe924afe036df59739a",
+    "semantic_hash": "b8758577ffa5cfe924afe036df59739a"
+  },
+  "/home/theta/repos/stargem.nix/ai-dev-tasks/generate-tasks.md": {
+    "mtime": 1778228426.7723424,
+    "ast_hash": "559a233639cb9e12a2f9c7c649502ba7",
+    "semantic_hash": "559a233639cb9e12a2f9c7c649502ba7"
+  },
+  "/home/theta/repos/stargem.nix/client/README.md": {
+    "mtime": 1778230068.866887,
+    "ast_hash": "d06f131c3aba2d2c3af85b1a2da1af8a",
+    "semantic_hash": "d06f131c3aba2d2c3af85b1a2da1af8a"
+  },
+  "/home/theta/repos/stargem.nix/docker-compose.ci.yml": {
+    "mtime": 1778841267.651673,
+    "ast_hash": "7884512f4abb380b9f26165259f0b1fa",
+    "semantic_hash": "7884512f4abb380b9f26165259f0b1fa"
+  },
+  "/home/theta/repos/stargem.nix/docker-compose.yml": {
+    "mtime": 1778841267.651673,
+    "ast_hash": "fc88ea1e3ffcdc6f11af819b50dfdab0",
+    "semantic_hash": "fc88ea1e3ffcdc6f11af819b50dfdab0"
+  },
+  "/home/theta/repos/stargem.nix/docs/superpowers/specs/2026-06-13-stargem-mvp-backend-implementation.md": {
+    "mtime": 1781303013.4681456,
+    "ast_hash": "1c0c9fed93e88c12d113f98f434c37c9",
+    "semantic_hash": "1c0c9fed93e88c12d113f98f434c37c9"
+  },
+  "/home/theta/repos/stargem.nix/initial_prd_prompt.txt": {
+    "mtime": 1778233647.5389876,
+    "ast_hash": "a07cb1c230f91648f26477c8d7bacf34",
+    "semantic_hash": "a07cb1c230f91648f26477c8d7bacf34"
+  },
+  "/home/theta/repos/stargem.nix/onthology.md": {
+    "mtime": 1781303115.8348095,
+    "ast_hash": "414dae6cf6cf4c3fe730da45094bc37c",
+    "semantic_hash": "414dae6cf6cf4c3fe730da45094bc37c"
+  },
+  "/home/theta/repos/stargem.nix/server/README.md": {
+    "mtime": 1778230056.228904,
+    "ast_hash": "a01fc5567313523b6d95b208f6cd5a7a",
+    "semantic_hash": "a01fc5567313523b6d95b208f6cd5a7a"
+  },
+  "/home/theta/repos/stargem.nix/server/config/ships/README.md": {
+    "mtime": 1781303141.2019749,
+    "ast_hash": "e8cedb25760187068279856f23bb7d89",
+    "semantic_hash": "e8cedb25760187068279856f23bb7d89"
+  },
+  "/home/theta/repos/stargem.nix/tasks/backlog/prd-stargem-mvp.md": {
+    "mtime": 1778800361.3082695,
+    "ast_hash": "8384e44412a8b60ba8b89131e6023917",
+    "semantic_hash": "8384e44412a8b60ba8b89131e6023917"
+  },
+  "/home/theta/repos/stargem.nix/tasks/backlog/tasks-stargem-mvp.md": {
+    "mtime": 1778841267.6545,
+    "ast_hash": "c3b4c21a7a1485ca93978d49dfc914d9",
+    "semantic_hash": "c3b4c21a7a1485ca93978d49dfc914d9"
+  }
+}

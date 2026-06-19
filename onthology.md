@@ -31,27 +31,28 @@
     - Cover Ops have Plasma Web (Inflicts Damage On Time to the target on key pressed)
     - Recons have Hyper-Propulsion (Warps far away on key pressed)
     - ECMs have Electromagnetic surge (Freeze every Ship around for a small while)
-- Ships can equip PassiveCombatModules: (hull enforcement, speed boosters, etc.) which change Ships stat from their ShipModel's original
-- PlayerShips are equiped with EquipablesItems which are:
-    - n PassiveCombatModules
+- Each ShipModel has a fixed slot layout per passive module type, defined as integer counts (0-3 per type): shields_count, armors_count, capacitors_count, motors_count, computers_count
+- PassiveCombatModules (hull enforcement, speed boosters, etc.) change Ship stats from their ShipModel's original values
+- Passive Combat Modules are catalog items — ship-independent entities with explicit stat modifiers (shield_hp, armor_hp, energy, speed, agility). Each passive module has a module_type enum (shield, armor, capacitor, motor, computer) and a machine-readable model code. Players equip them into the ship model's fixed passive slots.
+    - Even if PassiveCombatModules are intended to enforce the Ship part they are for (ex: augment Armor HP for armor typed Passive Module), they may act differently
+        - ex: "Light armor" Armor Module would increase speed and lower Armor HP
+- PlayerShips are equipped with EquipablesItems which are:
+    - n PassiveCombatModules (filling the ship model's per-type slots)
     - 4 ActiveCombatModules
     - 1 Weapon
     - 1 MissileLauncher
     - The SpecialCombatModule is hard-build and proper the ShipRole. PlayerShips of any ShipModel inherit of the SpecialCombatModule of their ShipRole.
-- Each ShipModel has its own set of PassiveCombatModules (example: 1 for the Shield, 2 for the Armor, etc.)
-- Each Passive Combat Module has a type (Shield, Armor, Capacitor, Motor, Computer), and each are different to provide different effects
-    - Even if PassiveCombatModules are intended to enforce the Ship part they are for (ex: augment Armor HP for armor typed Passive Module), they may act differently
-        - ex: "Light armor" Armor Module would increase speed and lower Armor HP
+- ActiveCombatModules, Weapons, and MissileModels are also catalog items - ship-independent entities defined in the game catalog
 - Ships can equip 4 ActiveCombatModules, which can be specific to their ShipRoles (Healer module, Shield Boost, etc.)
 - ActiveCombatModules consume Energy on activation, and have cooldown
-- ActiveCombatModules have seevral possible activation flow:
+- ActiveCombatModules have several possible activation flow:
     - "One Shot": Push activates => provide effect, consumes a finite energy amount, and wait for cooldown
-    - "Ongoing": Push toggle on/off => "on" provides effect while continuosly consuming energy. May have cooldown before going "on" again
-- Ships can equip exactly 1 Weapon proper to their size (Weapons for Frigates, for Fighters, or for Interceptors). Multiple weapon types exist per size class (e.g., different fire rates, damage per shot, heat generation).
+    - "Ongoing": Push toggle on/off => "on" provides effect while continuously consuming energy. May have cooldown before going "on" again
+- Ships can equip exactly 1 Weapon proper to their size (Weapons for Frigates, for Fighters, or for Interceptors). Multiple weapon types exist per size class (e.g., different fire rates, damage per shot, heat generation, damage type).
 - Ship movement uses arcade-style physics (speed cap, drag, instant acceleration) rather than Newtonian simulation.
 - Weapons overload if used for a long period of time, and require to cool down.
 - Overheating a Weapon adds up more time for cooling, so it's better to avoid overheating to optimize shooting in long periods
-- Ships can shoot Missiles from exactly 1 Missile launcher. Missiles have distinct flight and damage behavior from weapons.
+- Ships can shoot Missiles from exactly 1 Missile launcher. Missile Models have distinct flight and damage behavior from weapons.
 
 ## User Environment:
 # Build time: The User build his Ships set

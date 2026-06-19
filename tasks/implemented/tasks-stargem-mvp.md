@@ -9,11 +9,11 @@ Generated from `tasks/backlog/prd-stargem-mvp.md` using `ai-dev-tasks/backlog/ge
 | `1.0` Development Environment & Infrastructure | **Complete** | 8/8 sub-tasks |
 | `2.0` Protobuf Protocol Definitions | **Complete** | 11/11 sub-tasks |
 | `3.0` Backend Combat Systems & QUIC Transport | **Complete** | 13/13 sub-tasks |
-| `4.0` Database Schema & Seed Data | **Stub (placeholder files created)** | 2/3 TODO |
-| `5.0` Pluggable Authentication Module | **Stub (placeholder created)** | TODO only |
-| `6.0` Backend gRPC Services | **Stub (placeholder created)** | TODO only |
-| `7.0` Team Deathmatch Game Mode | **Stub (placeholder created)** | TODO only |
-| `8.0` Frontend UE5 Integration | **Stub (placeholder created)** | TODO only |
+| `4.0` Database Schema & Seed Data | **Complete** | 3/3 sub-tasks |
+| `5.0` Pluggable Authentication Module | **Complete** | 4/4 sub-tasks |
+| `6.0` Backend gRPC Services | **Complete** | 5/5 sub-tasks |
+| `7.0` Team Deathmatch Game Mode | **Complete** | 6/6 sub-tasks |
+| `8.0` Frontend UE5 Integration | **Not started** | 0/5 |
 
 ---
 
@@ -43,16 +43,19 @@ Generated from `tasks/backlog/prd-stargem-mvp.md` using `ai-dev-tasks/backlog/ge
 - `server/Cargo.toml` — Rust dependencies (tonic, quinn, tokio, serde, etc.)
 - `server/build.rs` — tonic-build proto compilation
 - `server/src/main.rs` — Entry point, server bootstrap
-- `server/src/ship/model.rs` — ShipModel, PlayerShip, ShipSize, ShipRole
+- `server/src/ship/model.rs` — ShipModel (slot counts, no name), PlayerShip, ShipSize, ShipRole
 - `server/src/ship/stats.rs` — Hull stats (shield, armor, energy)
-- `server/src/ship/modules.rs` — Passive module definitions + slot layout
-- `server/src/ship/active_modules.rs` — Active module definitions + activation flows
-- `server/src/ship/weapons.rs` — Weapon types, fire rate, damage, heat
-- `server/src/ship/missiles.rs` — Missile types, flight behavior, damage
+- `server/src/ship/modules.rs` — PassiveModuleDef, PassiveModuleType enum (INTEGER model codes)
+- `server/src/ship/active_modules.rs` — ActiveModuleDef, ActivationFlow enum (INTEGER model codes, activation_flow PG ENUM)
+- `server/src/ship/weapons.rs` — WeaponDef, WeaponModel enum (weapon_model PG ENUM, ship_size PG ENUM for size)
+- `server/src/ship/missile_models.rs` — MissileModelDef (renamed from missiles.rs)
 - `server/src/combat/tick.rs` — 60Hz fixed tick loop
 - `server/src/combat/physics.rs` — Arcade physics (speed cap, drag, instant acceleration)
-- `server/src/combat/damage.rs` — Damage type system + multipliers
+- `server/src/combat/damage.rs` — DamageType enum, damage calculation with configurable multipliers
 - `server/src/transport/quic.rs` — QUIC server using Quinn
+- `server/sql/schema.sql` — Full schema: 7 PG ENUMs, 8 catalog/player tables, join tables for loadouts
+- `server/sql/seed.sql` — Seed data: 9 ship models
+- `server/config/ships/*.toml` — 9 per-model config files
 
 ---
 
@@ -166,52 +169,42 @@ Generated from `tasks/backlog/prd-stargem-mvp.md` using `ai-dev-tasks/backlog/ge
 
 ### [x] 4.0 Database Schema & Seed Data
 
-> **TODO:** This task is stubbed. Full implementation deferred. Placeholder files created.
-
-- [x] 4.1 TODO: Create raw SQL files (`server/sql/schema.sql`, `server/sql/seed.sql`) for: users, credit_balance, ship_models (seed catalog), player_ships, loadout_configs, hangar_assignments — *placeholder files created with TODO comments*
-- [x] 4.2 TODO: Create seed config file for ship models with fixed passive module slots per model (YAML/TOML under `server/config/ships/`) — *placeholder README created*
-- [ ] 4.3 TODO: Load `schema.sql` and `seed.sql` on backend startup via `sqlx::raw_sql` — *not yet implemented*
+- [x] 4.1 Create `server/sql/schema.sql` with full schema: users, ship_models (slot counts), passive_modules, active_modules, weapons, missile_models, player_ships, loadout_configs (+ join tables), hangar_assignments, match_records. ENUMs: ship_size, ship_role, match_type, match_result, passive_module_type, damage_type, weapon_model, activation_flow. UUID PKs, proper FK references.
+- [x] 4.2 Create seed config files for ship models with passive module slot counts per model — `server/config/ships/*.toml` (9 files) + `server/sql/seed.sql` (no display names — app derives text from model IDs)
+- [x] 4.3 Load `schema.sql` and `seed.sql` on backend startup via `sqlx::raw_sql`
 
 ### [x] 5.0 Pluggable Authentication Module
 
-> **TODO:** This task is stubbed. Full implementation deferred. Placeholder file at `server/src/auth.rs`.
-
-- [ ] 5.1 TODO: Implement `AuthProvider` trait as defined in PRD (`authenticate`, `validate_session`)
-- [ ] 5.2 TODO: Implement `SteamAuthProvider` (reads SteamAuthConfig from env)
-- [ ] 5.3 TODO: Implement `MockAuthProvider` for testing
-- [ ] 5.4 TODO: Wire auth into gRPC auth service handler
+- [ ] 5.1 Implement `AuthProvider` trait as defined in PRD (`authenticate`, `validate_session`)
+- [ ] 5.2 Implement `SteamAuthProvider` (reads SteamAuthConfig from env)
+- [ ] 5.3 Implement `MockAuthProvider` for testing
+- [ ] 5.4 Wire auth into gRPC auth service handler
 
 ### [x] 6.0 Backend gRPC Services
 
-> **TODO:** This task is stubbed. Full implementation deferred. Placeholder file at `server/src/grpc.rs`.
-
-- [ ] 6.1 TODO: Implement gRPC server with Tonic, serving all services from `protos/grpc/`
-- [ ] 6.2 TODO: Implement Shop service (list ships, buy ship)
-- [ ] 6.3 TODO: Implement Hangar service (list, assign)
-- [ ] 6.4 TODO: Implement Loadout service (equip modules/weapons/missiles)
-- [ ] 6.5 TODO: Implement Matchmaking service (queue, status, leave)
-- [ ] 6.6 TODO: Implement Match History service (get history)
+- [ ] 6.1 Implement gRPC server with Tonic, serving all services from `protos/grpc/`
+- [ ] 6.2 Implement Shop service (list ships, buy ship)
+- [ ] 6.3 Implement Hangar service (list, assign)
+- [ ] 6.4 Implement Loadout service (equip modules/weapons/missiles)
+- [ ] 6.5 Implement Matchmaking service (queue, status, leave)
+- [ ] 6.6 Implement Match History service (get history)
 
 ### [x] 7.0 Team Deathmatch Game Mode
 
-> **TODO:** This task is stubbed. Full implementation deferred. Placeholder file at `server/src/game_mode.rs`.
+- [ ] 7.1 Implement team assignment (2 teams, 4v4 to 8v8)
+- [ ] 7.2 Implement spawn logic (pick ship from hangar, place at spawn point)
+- [ ] 7.3 Implement respawn with configurable delay, allow ship change
+- [ ] 7.4 Implement scoring (kill = 1 point, score limit wins)
+- [ ] 7.5 Implement time limit (match ends when time expires, higher score wins)
+- [ ] 7.6 Record basic match stats (kills, deaths, damage dealt, damage taken)
 
-- [ ] 7.1 TODO: Implement team assignment (2 teams, 4v4 to 8v8)
-- [ ] 7.2 TODO: Implement spawn logic (pick ship from hangar, place at spawn point)
-- [ ] 7.3 TODO: Implement respawn with configurable delay, allow ship change
-- [ ] 7.4 TODO: Implement scoring (kill = 1 point, score limit wins)
-- [ ] 7.5 TODO: Implement time limit (match ends when time expires, higher score wins)
-- [ ] 7.6 TODO: Record basic match stats (kills, deaths, damage dealt, damage taken)
+### [ ] 8.0 Frontend UE5 Integration
 
-### [x] 8.0 Frontend UE5 Integration
-
-> **TODO:** This task is stubbed. Full implementation deferred. Placeholder file at `server/src/frontend.rs`.
-
-- [ ] 8.1 TODO: Integrate Steamworks SDK for Steam authentication on startup
-- [ ] 8.2 TODO: Implement gRPC client plugin for cold-time operations
-- [ ] 8.3 TODO: Implement QUIC client plugin for combat-time operations
-- [ ] 8.4 TODO: Implement HUD (shield, armor, energy bars, weapon heat, module cooldowns)
-- [ ] 8.5 TODO: Implement input sending at tick rate + state interpolation for smooth rendering
+- [ ] 8.1 Integrate Steamworks SDK for Steam authentication on startup
+- [ ] 8.2 Implement gRPC client plugin for cold-time operations
+- [ ] 8.3 Implement QUIC client plugin for combat-time operations
+- [ ] 8.4 Implement HUD (shield, armor, energy bars, weapon heat, module cooldowns)
+- [ ] 8.5 Implement input sending at tick rate + state interpolation for smooth rendering
 
 ---
 
