@@ -24,6 +24,7 @@ message ShipState {
   float armor_hp = 6;
   float energy = 7;
   float heat_level = 8;
+  string player_id = 9;
 }
 
 message DamageEvent {
