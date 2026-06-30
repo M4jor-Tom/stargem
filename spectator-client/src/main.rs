@@ -2,6 +2,7 @@ mod proto;
 mod grpc;
 mod world;
 mod render;
+mod camera;
 
 use bevy::prelude::*;
 use clap::Parser;
@@ -34,6 +35,6 @@ fn main() {
         .insert_resource(LiveWorldRes(LiveWorld::default()))
         .insert_resource(EventRx(rx))
         .add_systems(Startup, setup_scene)
-        .add_systems(Update, (drain_events, sync_ship_entities).chain())
+        .add_systems(Update, (drain_events, sync_ship_entities, camera::switch_target_system, camera::follow_camera_system).chain())
         .run();
 }
