@@ -1,5 +1,6 @@
 mod proto;
 mod grpc;
+mod world;
 
 use clap::Parser;
 use grpc::{spawn_grpc_task, GrpcConfig, SpectatorEvent};
