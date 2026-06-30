@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use crate::world::{LiveWorld, ShipSnap};
+use crate::world::LiveWorld;
 
 #[derive(Resource)]
 pub struct LiveWorldRes(pub LiveWorld);
