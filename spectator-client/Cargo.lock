@@ -4408,6 +4408,7 @@ dependencies = [
  "bevy_egui",
  "clap",
  "crossbeam-channel",
+ "indexmap 2.14.0",
  "prost",
  "tokio",
  "tonic",

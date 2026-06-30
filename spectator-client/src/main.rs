@@ -3,8 +3,10 @@ mod grpc;
 mod world;
 mod render;
 mod camera;
+mod ui;
 
 use bevy::prelude::*;
+use bevy_egui::EguiPlugin;
 use clap::Parser;
 
 use grpc::{spawn_grpc_task, GrpcConfig};
@@ -32,9 +34,10 @@ fn main() {
 
     App::new()
         .add_plugins(DefaultPlugins)
+        .add_plugins(EguiPlugin)
         .insert_resource(LiveWorldRes(LiveWorld::default()))
         .insert_resource(EventRx(rx))
         .add_systems(Startup, setup_scene)
-        .add_systems(Update, (drain_events, sync_ship_entities, camera::switch_target_system, camera::follow_camera_system).chain())
+        .add_systems(Update, (drain_events, sync_ship_entities, camera::switch_target_system, camera::follow_camera_system, ui::ui_system).chain())
         .run();
 }
