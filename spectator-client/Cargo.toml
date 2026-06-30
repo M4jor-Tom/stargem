@@ -1,0 +1,19 @@
+[package]
+name = "spectator-client"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = "0.14"
+bevy_egui = "0.28"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync"] }
+tonic = "0.11"
+prost = "0.12"
+crossbeam-channel = "0.5"
+clap = { version = "4", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1", features = ["v4"] }
+
+[build-dependencies]
+tonic-build = "0.11"
