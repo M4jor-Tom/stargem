@@ -1,9 +1,14 @@
 mod proto;
 mod grpc;
 mod world;
+mod render;
 
+use bevy::prelude::*;
 use clap::Parser;
-use grpc::{spawn_grpc_task, GrpcConfig, SpectatorEvent};
+
+use grpc::{spawn_grpc_task, GrpcConfig};
+use render::{drain_events, setup_scene, sync_ship_entities, EventRx, LiveWorldRes};
+use world::LiveWorld;
 
 #[derive(Parser, Debug)]
 struct Args {
@@ -24,16 +29,11 @@ fn main() {
         match_id: args.r#match,
     });
 
-    let mut shown = 0;
-    for ev in rx.iter() {
-        match ev {
-            SpectatorEvent::Matches(m) => println!("matches: {:?}", m.iter().map(|i| &i.match_id).collect::<Vec<_>>()),
-            SpectatorEvent::Snapshot(s) => {
-                println!("tick={} players={} dmg={}", s.tick_number, s.players.len(), s.damage_events.len());
-                shown += 1;
-                if shown >= 5 { break; }
-            }
-            SpectatorEvent::Error(e) => { eprintln!("err: {e}"); break; }
-        }
-    }
+    App::new()
+        .add_plugins(DefaultPlugins)
+        .insert_resource(LiveWorldRes(LiveWorld::default()))
+        .insert_resource(EventRx(rx))
+        .add_systems(Startup, setup_scene)
+        .add_systems(Update, (drain_events, sync_ship_entities).chain())
+        .run();
 }
