@@ -53,7 +53,7 @@ async fn run(cfg: GrpcConfig, tx: Sender<SpectatorEvent>) {
         (Some(id), _) => id.clone(),
         (None, Some(name)) => match matches.iter().find(|m| m.match_id == *name) {
             Some(m) => m.match_id.clone(),
-            None => { let _ = tx.send(SpectatorEvent::Error(format!("no match named {name}"))); return; }
+            None => { let _ = tx.send(SpectatorEvent::Error(format!("no match id {name}"))); return; }
         },
         (None, None) => {
             if matches.len() == 1 {
