@@ -39,3 +39,16 @@ proto:
 proto-check:
   nix develop ./server -c bash -c "cd server && PROTO_SRC=../protos cargo build && cargo fmt"
   git -C server diff --exit-code
+
+# Run a scenario as an ongoing game for spectators
+scenario-run SCENARIO="ship_destruction_kinetic":
+  nix develop ./server -c bash -c "cd server && cargo run --release --bin scenario-runner -- --scenario {{SCENARIO}} --loop_ --tick-rate 2"
+
+# Run the spectator viewer (connect to a scenario-runner)
+spectator-run MATCH="ship_destruction_kinetic":
+  cd spectator-client && PROTO_SRC=../protos nix develop -c cargo run --release -- --match-name {{MATCH}}
+
+# Run scenario + spectator side-by-side (two terminals required)
+spectate SCENARIO="ship_destruction_kinetic":
+  @echo "Open a second terminal and run:  just spectator-run {{SCENARIO}}"
+  @just scenario-run {{SCENARIO}}

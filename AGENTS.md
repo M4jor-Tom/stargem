@@ -10,6 +10,7 @@ Not checked out in a default clone — you **must** init them explicitly:
 |---|---|
 | `server/` | `github:M4jor-Tom/stargem_backend.rs.git` |
 | `client/` | `github:M4jor-Tom/stargem_frontend.cpp.git` |
+| `spectator-client/` | (local for now — push to own repo when ready) |
 | `.opencode/rules/` | `github:M4jor-Tom/rules.md.git` |
 | `ai-dev-tasks/` | `github:snarktank/ai-dev-tasks.git` |
 
@@ -66,6 +67,7 @@ All cargo tasks require the Nix dev shell: `nix develop ./server -c just <cmd>`.
 - **Game design**: `onthology.md` — damage types, ship roles, special modules.
 - **AI dev tasks**: `ai-dev-tasks/` has structured prompt templates (`create-prd.md`, `generate-tasks.md`).
 - **Rust builds**: Use `github:ipetkov/crane` per `.opencode/rules/rust-builds.md`.
+- **Spectator client**: `spectator-client/` is a read-only Bevy 3D viewer that subscribes to `SpectatorService.SubscribeMatch` (gRPC streaming) and renders live game state with a journal. Run `just spectate SCENARIO=ship_destruction_kinetic`.
 
 ## Loaded instructions
 
