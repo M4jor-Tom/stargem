@@ -12,6 +12,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     tonic_build::configure()
         .build_server(false)
         .build_client(true)
+        .extern_path(".stargem.quic.combat", "crate::proto::combat")
+        .extern_path(".stargem.quic.common", "crate::proto::common")
         .compile(protos, &[proto_root])?;
     Ok(())
 }
