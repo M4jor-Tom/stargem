@@ -76,9 +76,16 @@ pub fn drain_events(
 ) {
     while let Ok(ev) = rx.0.try_recv() {
         match ev {
-            crate::grpc::SpectatorEvent::Snapshot(s) => crate::world::apply_snapshot(&mut world_res.0, &s),
-            crate::grpc::SpectatorEvent::Matches(_) => {}
-            crate::grpc::SpectatorEvent::Error(e) => tracing::warn!("spectator stream: {e}"),
+            crate::grpc::SpectatorEvent::Snapshot(s) => {
+                eprintln!("spectator: tick={} players={} dmg={}", s.tick_number, s.players.len(), s.damage_events.len());
+                crate::world::apply_snapshot(&mut world_res.0, &s);
+            }
+            crate::grpc::SpectatorEvent::Matches(m) => {
+                eprintln!("spectator: found {} match(es)", m.len());
+            }
+            crate::grpc::SpectatorEvent::Error(e) => {
+                eprintln!("spectator: error: {e}");
+            }
         }
     }
 }

@@ -17,6 +17,13 @@
         rustToolchain = pkgs.rust-bin.stable.latest.default.override {
           extensions = [ "rust-src" "clippy" "rustfmt" ];
         };
+        nativeLibs = with pkgs; [
+          alsa-lib udev vulkan-loader
+          libxkbcommon wayland
+          libx11 libxcursor libxi libxrandr
+        ];
+        pkgConfigPath = pkgs.lib.makeSearchPath "lib/pkgconfig"
+          (map (p: p.dev or p) nativeLibs);
       in
       {
         devShells.default = pkgs.mkShell {
@@ -24,29 +31,22 @@
           nativeBuildInputs = with pkgs; [
             rustToolchain pkg-config protobuf
           ];
-          buildInputs = with pkgs; [
-            alsa-lib udev vulkan-loader
-            libxkbcommon wayland
-            libx11 libxcursor libxi libxrandr
-          ];
+          buildInputs = nativeLibs;
           LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib:${pkgs.libxkbcommon}/lib:${pkgs.wayland}/lib";
         };
 
         apps.default = flake-utils.lib.mkApp {
           drv = pkgs.writeShellApplication {
             name = "spectator-client";
-            runtimeInputs = with pkgs; [
-              rustToolchain pkg-config protobuf
-              alsa-lib udev vulkan-loader
-              libxkbcommon wayland
-              libx11 libxcursor libxi libxrandr
-            ];
+            runtimeInputs = [ rustToolchain pkgs.stdenv.cc pkgs.pkg-config pkgs.protobuf ] ++ nativeLibs;
             text = ''
-              export PROTO_SRC="${self}/protos"
+              export PROTO_SRC="${self}/../protos"
               export PROTOC="${pkgs.protobuf}/bin/protoc"
               export PROTOC_INCLUDE="${pkgs.protobuf}/include"
+              export PKG_CONFIG_PATH="${pkgConfigPath}"
               export LD_LIBRARY_PATH="${pkgs.vulkan-loader}/lib:${pkgs.libxkbcommon}/lib:${pkgs.wayland}/lib"
-              cargo run --manifest-path "${self}/spectator-client/Cargo.toml" --release -- "$@"
+              export CARGO_TARGET_DIR="''${CARGO_TARGET_DIR:-''${XDG_CACHE_HOME:-$HOME/.cache}/stargem-spectator/target}"
+              cargo run --manifest-path "${self}/Cargo.toml" --release -- "$@"
             '';
           };
         };
