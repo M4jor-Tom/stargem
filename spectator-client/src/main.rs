@@ -10,7 +10,7 @@ use bevy_egui::EguiPlugin;
 use clap::Parser;
 
 use grpc::{spawn_grpc_task, GrpcConfig};
-use render::{drain_events, setup_scene, sync_ship_entities, EventRx, LiveWorldRes};
+use render::{draw_shots_system, drain_events, setup_scene, sync_ship_entities, EventRx, LiveWorldRes};
 use world::LiveWorld;
 
 #[derive(Parser, Debug)]
@@ -37,7 +37,16 @@ fn main() {
         .add_plugins(EguiPlugin)
         .insert_resource(LiveWorldRes(LiveWorld::default()))
         .insert_resource(EventRx(rx))
+        .init_resource::<camera::CameraOrbit>()
         .add_systems(Startup, setup_scene)
-        .add_systems(Update, (drain_events, sync_ship_entities, camera::switch_target_system, camera::follow_camera_system, ui::ui_system).chain())
+        .add_systems(Update, (
+            drain_events,
+            sync_ship_entities,
+            camera::switch_target_system,
+            camera::orbit_input_system,
+            camera::follow_camera_system,
+            draw_shots_system,
+            ui::ui_system,
+        ).chain())
         .run();
 }

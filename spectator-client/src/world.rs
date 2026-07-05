@@ -10,6 +10,8 @@ pub struct LiveWorld {
     pub journal: VecDeque<JournalEntry>,
     pub tick: u64,
     pub follow_idx: usize,
+    /// Shots produced by the last applied snapshot; the renderer drains this.
+    pub pending_shots: Vec<ShotSpawn>,
 }
 
 impl Default for LiveWorld {
@@ -19,8 +21,19 @@ impl Default for LiveWorld {
             journal: VecDeque::new(),
             tick: 0,
             follow_idx: 0,
+            pending_shots: Vec::new(),
         }
     }
+}
+
+#[derive(Clone, Copy, Debug)]
+pub enum ShotKind { Kinetic, Electromagnetic, Laser }
+
+#[derive(Clone, Debug)]
+pub struct ShotSpawn {
+    pub src: String,
+    pub tgt: String,
+    pub kind: ShotKind,
 }
 
 #[derive(Clone)]
@@ -65,6 +78,12 @@ pub fn apply_snapshot(world: &mut LiveWorld, snap: &GameStateSnapshot) {
         let text = format!("{src} → {tgt}  {} dmg {} ({:.0} mit)", d.damage_type, d.raw_amount, d.mitigated_amount);
         world.journal.push_front(JournalEntry { tick: world.tick, text });
         while world.journal.len() > JOURNAL_CAP { world.journal.pop_back(); }
+        let kind = match d.damage_type.as_str() {
+            "thermic" => ShotKind::Laser,
+            "electromagnetic" => ShotKind::Electromagnetic,
+            _ => ShotKind::Kinetic,
+        };
+        world.pending_shots.push(ShotSpawn { src, tgt, kind });
     }
     if world.follow_idx >= world.players.len() && !world.players.is_empty() {
         world.follow_idx = 0;

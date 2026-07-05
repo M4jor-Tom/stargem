@@ -48,11 +48,14 @@ scenario-run SCENARIO="ship_destruction_kinetic":
 spectator-run MATCH="ship_destruction_kinetic":
   cd spectator-client && PROTO_SRC=../protos nix develop -c cargo run --release -- --match-name {{MATCH}}
 
-# Run scenario + spectator side-by-side; Ctrl+C stops both
-spectate SCENARIO="ship_destruction_kinetic":
+# Pick a scenario interactively, then run scenario-runner + spectator side-by-side.
+# Ctrl+C stops both.
+spectate:
   #!/usr/bin/env bash
+  set -euo pipefail
+  SCENARIO=$(nix run ./server#scenario-picker)
   set -m
   trap 'kill 0' INT TERM EXIT
-  nix run ./server#scenario-runner -- --scenario {{SCENARIO}} --tick-rate 2 --loop &
+  nix run ./server#scenario-runner -- --scenario "$SCENARIO" --tick-rate 2 --loop &
   nix run ./spectator-client# -- --grpc-addr 127.0.0.1:50051 &
   wait

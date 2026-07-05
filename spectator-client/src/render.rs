@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use crate::world::LiveWorld;
+use crate::world::{LiveWorld, ShotKind, ShotSpawn};
 
 #[derive(Resource)]
 pub struct LiveWorldRes(pub LiveWorld);
@@ -16,17 +16,33 @@ pub struct ShipMaterials {
     pub material: Handle<StandardMaterial>,
 }
 
+#[derive(Resource, Default)]
+pub struct ActiveShots {
+    pub items: Vec<ActiveShot>,
+}
+
+pub struct ActiveShot {
+    pub src: String,
+    pub tgt: String,
+    pub kind: ShotKind,
+    pub age: f32,
+    pub life: f32,
+}
+
 pub fn setup_scene(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
+    // ponytail: transparent primitive stands in for a real gltf ship
     let cube = meshes.add(Cuboid::new(4.0, 2.0, 4.0));
     let mat = materials.add(StandardMaterial {
-        base_color: Color::srgb(0.7, 0.7, 0.9),
+        base_color: Color::srgba(0.7, 0.7, 0.9, 0.35),
+        alpha_mode: AlphaMode::Blend,
         ..default()
     });
     commands.insert_resource(ShipMaterials { mesh: cube, material: mat });
+    commands.init_resource::<ActiveShots>();
 
     commands.spawn(DirectionalLightBundle {
         directional_light: DirectionalLight { illuminance: 8000.0, ..default() },
@@ -73,6 +89,7 @@ pub fn sync_ship_entities(
 pub fn drain_events(
     rx: Res<EventRx>,
     mut world_res: ResMut<LiveWorldRes>,
+    mut shots: ResMut<ActiveShots>,
 ) {
     while let Ok(ev) = rx.0.try_recv() {
         match ev {
@@ -86,6 +103,44 @@ pub fn drain_events(
             crate::grpc::SpectatorEvent::Error(e) => {
                 eprintln!("spectator: error: {e}");
             }
+        }
+    }
+    for ShotSpawn { src, tgt, kind } in world_res.0.pending_shots.drain(..) {
+        let life = match kind { ShotKind::Laser => 0.15, _ => 0.5 };
+        shots.items.push(ActiveShot { src, tgt, kind, age: 0.0, life });
+    }
+}
+
+pub fn draw_shots_system(
+    time: Res<Time>,
+    world_res: Res<LiveWorldRes>,
+    mut shots: ResMut<ActiveShots>,
+    mut gizmos: Gizmos,
+) {
+    let dt = time.delta_seconds();
+    for shot in &mut shots.items {
+        shot.age += dt;
+    }
+    shots.items.retain(|s| s.age < s.life);
+
+    for shot in &shots.items {
+        let (Some(src), Some(tgt)) = (
+            world_res.0.players.get(&shot.src),
+            world_res.0.players.get(&shot.tgt),
+        ) else { continue };
+        let a = Vec3::from_array(src.position);
+        let b = Vec3::from_array(tgt.position);
+        let (color, is_ray) = match shot.kind {
+            ShotKind::Kinetic => (Color::srgb(1.0, 0.85, 0.3), false),
+            ShotKind::Electromagnetic => (Color::srgb(0.4, 0.8, 1.0), false),
+            ShotKind::Laser => (Color::srgb(1.0, 0.2, 0.2), true),
+        };
+        if is_ray {
+            gizmos.line(a, b, color);
+        } else {
+            let t = (shot.age / shot.life).clamp(0.0, 1.0);
+            let pos = a.lerp(b, t);
+            gizmos.sphere(pos, Quat::IDENTITY, 0.6, color);
         }
     }
 }
