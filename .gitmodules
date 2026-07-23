@@ -8,5 +8,5 @@
 	path = .opencode/rules
 	url = git@github.com:M4jor-Tom/rules.md.git
 [submodule "star_conflict"]
-	path = star_conflict
+	path = docs/footages/star_conflict
 	url = git@github.com:M4jor-Tom/star_conflict_footages.webm.git
