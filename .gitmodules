@@ -4,9 +4,9 @@
 [submodule "client"]
 	path = client
 	url = git@github.com:M4jor-Tom/stargem_frontend.cpp.git
-[submodule ".opencode/rules"]
-	path = .opencode/rules
-	url = git@github.com:M4jor-Tom/rules.md.git
-[submodule "star_conflict"]
+[submodule "star_conflict_webm"]
 	path = docs/footages/star_conflict
-	url = git@github.com:M4jor-Tom/star_conflict_footages.webm.git
+  url = git@github.com:M4jor-Tom/star_conflict_footages.webm.git
+[submodule "star_conflict_ships_gltf"]
+  path = docs/3D/star_conflict_ships.gltf
+  url = git@github.com:M4jor-Tom/star_conflict_ships.gltf.git
