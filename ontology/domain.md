@@ -1,7 +1,7 @@
 # Stargem — domain ontology
 
 Canonical semantic layer. `model.rs` mirrors it; `instances/` populates it. Source
-narrative: `../onthology.md`. Wire forms of runtime state live in `../protos/`.
+narrative: `../onthology.md`. Runtime state has no wire form yet; the server defines it when netcode lands.
 
 IDs are stable kebab-case and never change once referenced.
 
@@ -53,7 +53,7 @@ damage-type
 game-mode
 player-ship             (mutable, owned)
 hangar                  (mutable, owned)
-ship-state              (runtime only; wire form protos/quic/combat.proto ShipState)
+ship-state              (runtime only; no wire form yet)
 ```
 
 ### ship-size
@@ -186,7 +186,7 @@ Mutable instance of a ship model owned forever by one user.
 ### ship-state (runtime)
 Extrinsic, per match, not persisted: position, velocity, rotation, `shield_hp`, `armor_hp`,
 `energy`, `heat_level`, `cloaked`, active-module cooldowns. Wire form:
-`protos/quic/combat.proto` `ShipState`. Initial values come from the effective stats (Q7).
+none yet (defined with the netcode). Initial values come from the effective stats (Q7).
 
 ## Relations
 

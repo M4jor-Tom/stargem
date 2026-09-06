@@ -1,1 +1,2 @@
-ontology/target/
+target/
+.direnv/

@@ -1,0 +1,10 @@
+[package]
+name = "client"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ontology = { package = "stargem-ontology", path = "../ontology" }
+sim = { path = "../sim" }
+glam = { workspace = true }
+raylib = "6.0"

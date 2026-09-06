@@ -1,9 +1,3 @@
-[submodule "server"]
-	path = server
-	url = git@github.com:M4jor-Tom/stargem_backend.rs.git
-[submodule "client"]
-	path = client
-	url = git@github.com:M4jor-Tom/stargem_frontend.cpp.git
 [submodule "star_conflict_webm"]
 	path = docs/footages/star_conflict
   url = git@github.com:M4jor-Tom/star_conflict_footages.webm.git
