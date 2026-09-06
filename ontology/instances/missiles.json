@@ -1,0 +1,5 @@
+[
+  { "id": "homing-missile", "name": "Homing Missile", "damage_type": "thermic", "damage": 1200, "speed": 600, "ammo": 6,  "reload_s": 8 },
+  { "id": "cruise-missile", "name": "Cruise Missile", "damage_type": "kinetic", "damage": 3500, "speed": 400, "ammo": 4,  "reload_s": 15 },
+  { "id": "emp-missile",    "name": "EMP Missile",    "damage_type": "electromagnetic", "damage": 900, "speed": 700, "ammo": 8, "reload_s": 6 }
+]

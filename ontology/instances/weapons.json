@@ -1,0 +1,12 @@
+[
+  { "id": "heavy-laser",    "name": "Heavy Laser",    "size": "frigate",     "damage_type": "thermic",
+    "damage_per_shot": 420, "fire_rate": 2.0, "heat_per_shot": 0.05, "cooling_per_s": 0.25, "overheat_penalty_s": 3.0 },
+  { "id": "heavy-railgun",  "name": "Heavy Railgun",  "size": "frigate",     "damage_type": "kinetic",
+    "damage_per_shot": 900, "fire_rate": 0.8, "heat_per_shot": 0.12, "cooling_per_s": 0.25, "overheat_penalty_s": 4.0 },
+  { "id": "assault-railgun","name": "Assault Railgun","size": "fighter",     "damage_type": "kinetic",
+    "damage_per_shot": 260, "fire_rate": 3.0, "heat_per_shot": 0.045, "cooling_per_s": 0.30, "overheat_penalty_s": 2.5 },
+  { "id": "pulse-laser",    "name": "Pulse Laser",    "size": "fighter",     "damage_type": "electromagnetic",
+    "damage_per_shot": 180, "fire_rate": 5.0, "heat_per_shot": 0.03, "cooling_per_s": 0.30, "overheat_penalty_s": 2.5 },
+  { "id": "plasma-gun",     "name": "Plasma Gun",     "size": "interceptor", "damage_type": "electromagnetic",
+    "damage_per_shot": 140, "fire_rate": 4.0, "heat_per_shot": 0.04, "cooling_per_s": 0.35, "overheat_penalty_s": 2.0 }
+]

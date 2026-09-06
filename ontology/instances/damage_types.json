@@ -1,0 +1,5 @@
+[
+  { "id": "electromagnetic", "vs_shield": 1.5, "vs_armor": 0.7 },
+  { "id": "kinetic",         "vs_shield": 0.7, "vs_armor": 1.5 },
+  { "id": "thermic",         "vs_shield": 1.0, "vs_armor": 1.0 }
+]

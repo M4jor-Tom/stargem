@@ -1,0 +1,17 @@
+[
+  { "id": "shield-boost",   "name": "Shield Boost",   "allowed_roles": [],
+    "flow": { "kind": "one-shot", "energy_cost": 120, "cooldown_s": 25 },
+    "effect": "Instantly restores a chunk of shield HP." },
+  { "id": "remote-repair",  "name": "Remote Repair",  "allowed_roles": ["engineer"],
+    "flow": { "kind": "ongoing", "energy_per_s": 25, "cooldown_s": 10 },
+    "effect": "Heals the targeted ally's shield while on." },
+  { "id": "afterburner",    "name": "Afterburner",    "allowed_roles": [],
+    "flow": { "kind": "ongoing", "energy_per_s": 20, "cooldown_s": 5 },
+    "effect": "Raises the speed cap while on." },
+  { "id": "emergency-barrier", "name": "Emergency Barrier", "allowed_roles": ["guard", "command"],
+    "flow": { "kind": "one-shot", "energy_cost": 200, "cooldown_s": 60 },
+    "effect": "Absorbs all damage for 3 seconds." },
+  { "id": "engine-suppressor", "name": "Engine Suppressor", "allowed_roles": ["tackler"],
+    "flow": { "kind": "one-shot", "energy_cost": 100, "cooldown_s": 30 },
+    "effect": "Slows the target for a short while." }
+]

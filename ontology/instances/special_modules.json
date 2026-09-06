@@ -1,0 +1,11 @@
+[
+  { "id": "drones",           "name": "Repair Drones",         "activation": "press",  "effect": "Heals shield of allies in range on press." },
+  { "id": "sniper-weapon",    "name": "Sniper Mode",           "activation": "toggle", "effect": "Swaps to a long-range weapon; fires like a regular weapon while on." },
+  { "id": "phasic-shield",    "name": "Phasic Shield",         "activation": "toggle", "effect": "Cycles improved resistance against thermic / electromagnetic / kinetic." },
+  { "id": "cloak",            "name": "Cloak",                 "activation": "press",  "effect": "Ship becomes invisible; drops when the ship takes damage." },
+  { "id": "overclock",        "name": "Overclock",             "activation": "press",  "effect": "Boosts weapons and motors for a short time." },
+  { "id": "command-shield",   "name": "Command Shield",        "activation": "toggle", "effect": "Additional shield that drains energy instead of shield HP." },
+  { "id": "plasma-web",       "name": "Plasma Web",            "activation": "press",  "effect": "Inflicts damage over time on the target." },
+  { "id": "hyper-propulsion", "name": "Hyper-Propulsion",      "activation": "press",  "effect": "Warps the ship far away." },
+  { "id": "em-surge",         "name": "Electromagnetic Surge", "activation": "press",  "effect": "Freezes every ship around for a short while." }
+]

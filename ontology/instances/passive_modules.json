@@ -1,0 +1,10 @@
+[
+  { "id": "shield-extender",  "name": "Shield Extender",  "module_type": "shield",    "model_code": "SHD-EXT-1", "modifiers": { "shield_hp": 1500 } },
+  { "id": "reinforced-hull",  "name": "Reinforced Hull",  "module_type": "armor",     "model_code": "ARM-HUL-1", "modifiers": { "armor_hp": 1800, "speed": -10 } },
+  { "id": "light-armor",      "name": "Light Armor",      "module_type": "armor",     "model_code": "ARM-LGT-1", "modifiers": { "armor_hp": -600, "speed": 30 } },
+  { "id": "capacitor-bank",   "name": "Capacitor Bank",   "module_type": "capacitor", "model_code": "CAP-BNK-1", "modifiers": { "energy": 150 } },
+  { "id": "energy-recycler",  "name": "Energy Recycler",  "module_type": "capacitor", "model_code": "CAP-REC-1", "modifiers": { "energy_regen": 12 } },
+  { "id": "speed-booster",    "name": "Speed Booster",    "module_type": "motor",     "model_code": "MOT-SPD-1", "modifiers": { "speed": 40 } },
+  { "id": "gyro-stabilizer",  "name": "Gyro Stabilizer",  "module_type": "motor",     "model_code": "MOT-GYR-1", "modifiers": { "agility": 8 } },
+  { "id": "targeting-cpu",    "name": "Targeting CPU",    "module_type": "computer",  "model_code": "CPU-TGT-1", "modifiers": { "agility": 4, "energy_regen": 3 } }
+]

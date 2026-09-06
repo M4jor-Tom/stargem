@@ -1,0 +1,6 @@
+[
+  { "id": "team-deathmatch",    "name": "Team Deathmatch",    "category": "pvp",        "respawn_allowed": true },
+  { "id": "waves-survival",     "name": "Waves Survival",     "category": "pve",        "respawn_allowed": true },
+  { "id": "operation-scenario", "name": "Operation Scenario", "category": "pve",        "respawn_allowed": false },
+  { "id": "open-world",         "name": "Open World",         "category": "open-world", "respawn_allowed": true }
+]
