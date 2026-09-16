@@ -1,0 +1,155 @@
+error: Cannot build '/nix/store/mhrxc5w6drwi4m5ykbdrayz7869i9mx9-bzip2-1.0.8.tar.gz.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/q1rm5rl861j6yy2mi0avl6n6p2s32pf7-xz-5.8.3.tar.xz.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/k0ziclzfj00hp4z2pgp1q826m7z844dv-add-driver-runpath-hook.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/h5dk9g9zdwyha8nryg4hnqbqvjg9fyci-add-flags.sh.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/s6v8nxk2jdr6853v2xf2n8m34glmg7wz-cargo-build-hook.sh.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/77n8896lf73fk7ls2lx7knz4wrppr347-expand-response-params.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/4ly092l6nmhwv95mnn0m2sjaxjz76lhx-install-shell-files.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/9rdcjdvbn3i58jki3bvrmyypl4vpaaph-acl-2.4.0.tar.gz.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/bvzg0d622kybqjixak41y409cmwi6chp-attr-2.6.0.tar.gz.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/6a6diq15i1w6piy38bf29s6y8sjfsxa5-bash-5.3.tar.gz.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/y84saga4qsmk7xrprd0qv8rgdqjk67g1-bash-5.3.tar.gz.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/d370b9hbls0nlbmrvryfvs5ssj6x3wg0-bzip2-1.0.8.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/622jkvg8hgffly7dca6iif9drvimingx-bzip2-1.0.8-bin
+         /nix/store/7xyhx36z23dlmh8m7xs52vp71rh31nd8-bzip2-1.0.8-man
+         /nix/store/9vxrnnhc400s1rgq801wqfdxhzpcl1z1-bzip2-1.0.8-dev
+         /nix/store/xz5xsq0nihfs15fbknz5w0yblg04760q-bzip2-1.0.8
+error: Cannot build '/nix/store/hrbp3nnrk22sfk54yp4aki3nbyvlhcpz-curl-8.21.0.tar.xz.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/3xs5n9hmbbmc5qis9zzs764ilbjk0v72-libidn2-2.3.8.tar.gz.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/z6v5624dkfqg57qjzg6fadpxp07axkhv-libunistring-1.4.2.tar.gz.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/8h2wghnpg73n2fp62mmivrd47f6nvvn1-xz-5.8.3.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/23brp75kwidwj05vv28x9d6zf0afx7dp-xz-5.8.3-doc
+         /nix/store/8dajhx3rfsrpik71c54nr2fri7chkl1h-xz-5.8.3
+         /nix/store/f93blwvniz21d03ckg5yls34lkzllz4w-xz-5.8.3-bin
+         /nix/store/fv5ajg3dsj2a3cjrv1zalishm6d247gx-xz-5.8.3-man
+         /nix/store/i7wn9kdmg2z33fp727fwx9i9byf1ff5z-xz-5.8.3-dev
+error: Cannot build '/nix/store/b01vwixci0nkqjb2zgm3a0g5lj9s0ys8-xz-5.8.3.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/0fb3jrf20z28598alm6g7rrsw6dz2cqj-xz-5.8.3-bin
+         /nix/store/2d927hlqcqyi7q7a6qpmcmhii08g2dny-xz-5.8.3-man
+         /nix/store/bdwsskqikgdlq94xqh5dvyd8263w995g-xz-5.8.3
+         /nix/store/gbzc2cpjmhylnmwljbqa1pwmli5a2n1v-xz-5.8.3-dev
+         /nix/store/yyp2lz5xq2qz5x30hglmxcggmnly18sq-xz-5.8.3-doc
+error: Cannot build '/nix/store/59bywvscglygb4bv1sa8jn32sz8j24wm-binutils-wrapper-2.46.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/8z9c78amkvdpzbmkmcl8mhric3pciwfr-binutils-wrapper-2.46-info
+         /nix/store/dyjbizykf9df33ngqayq07abp41zky8f-binutils-wrapper-2.46-man
+         /nix/store/vs80ag6hsr58wv5fn3nlq8qi32x9hwfi-binutils-wrapper-2.46
+error: Cannot build '/nix/store/y1zg3wvkz7q4l1fd57ldkam9l5idl6k3-cargo-1.97.1.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/dv55qwamlq68hdiprg1v104ymwh1c27r-cargo-1.97.1
+error: Cannot build '/nix/store/srr74246my1d8kdrvpcf90d8ak8p6fg0-catalog-legacy-uris.patch.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/s636h4ifmi9zg20y49cfp3dm6smqv007-die-hook.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/0vk2vjikdzvmcys4l9pxj64jy77w62a7-dri-pkgconfig-stub.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/kcsjv5cjnyk7ld8cyxxavl7ng02maqm6-exec.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/76xjnxhmz9jw17mzxir46cpqcm9a8grm-find-xml-catalogs-hook.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/hywsfrqbc0k33ap8ggaksvpvqsgcrp2c-glibc-iconv-2.42.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/qx1z97fnpj7rxjz8cx82zr162z0753bq-libglvnd-1.7.0.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/knyasnbdxksxz6ilfygnrwa08m9n35m7-libglvnd-1.7.0-dev
+         /nix/store/rarvfpm927fcbd6b9p0crg09w9r3ywb3-libglvnd-1.7.0
+error: Cannot build '/nix/store/wm7pyv0zwny62bagf95991z0qmfqnvg5-mdbook-0.5.4.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/xvq8ypchpn5n74maqwbavnxizlhs5b8q-mdbook-0.5.4
+error: Cannot build '/nix/store/n5rcz7hfnhgas8vmhqiliwk0l151xf4m-meson-1.10.2.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/0r7h10h9442mzls1p0s7vrklg4a8nsny-meson-1.10.2-dist
+         /nix/store/azf6s3lpx8f53si93y8135mpyykjj72b-meson-1.10.2
+error: Cannot build '/nix/store/yn8scfhr5k35i4wyn5rbf58qyhp55zlh-mirrors-list.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/scdljjwg3fcx4vjmbwnnd0nrbnabzmhr-ninja-1.13.2.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/6ji6bq0si2j8ibdrxqgcmh1cw0wmdiyk-ninja-1.13.2
+error: Cannot build '/nix/store/cnjzzj25lab97wmx77akb1zni6dgqch3-pkg-config-wrapper-0.29.2.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/7fx93fz9c809w8yjxb0934zw6xcjis58-pkg-config-wrapper-0.29.2
+         /nix/store/dacavyl77pf5bb5pdkqdz5z8hc1bq90x-pkg-config-wrapper-0.29.2-doc
+         /nix/store/q6ajijr2vsj3hp8k6x6jddipc6hz1mnl-pkg-config-wrapper-0.29.2-man
+error: Cannot build '/nix/store/jw6iklwm3cpd0ld47pyxra5ahwjav7hm-pkg-config-wrapper-0.29.2.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/7fx93fz9c809w8yjxb0934zw6xcjis58-pkg-config-wrapper-0.29.2
+         /nix/store/dacavyl77pf5bb5pdkqdz5z8hc1bq90x-pkg-config-wrapper-0.29.2-doc
+         /nix/store/q6ajijr2vsj3hp8k6x6jddipc6hz1mnl-pkg-config-wrapper-0.29.2-man
+error: Cannot build '/nix/store/qzv3mxay3yqj0nfcrpda7b9pwv964358-python-catch-conflicts-hook.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/q5nwfnp41slddlib9wwnm3ixwgi7jyk4-python-imports-check-hook.sh.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/84rrxc5g9j2dvf04liikps61bk5rsla6-python-namespaces-hook.sh.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/5iw6f7kc1kbkcfd03pw6wwn583q17a2i-python-output-dist-hook.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/qvhy339l3lrki1637np2fh0wchgswyj7-python-remove-bin-bytecode-hook.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/k82jd00rxxr5s6diyr7z3wxdm5k1j7q0-python-remove-tests-dir-hook.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/4g2lmx97nps1aanqbw7rp3h03k0vifxp-rust-analyzer-unwrapped-2026-08-03.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/rxvnrynj04c7lcafxgy4j12dvxz2r05r-rust-analyzer-unwrapped-2026-08-03
+error: Cannot build '/nix/store/iar60k0dcxm1npwjs28mzgkjmwinv4l3-xmlto.drv'.
+       Reason: local builds are disabled (max-jobs = 0)
+       Hint: set 'max-jobs' to a non-zero value to enable local builds, or configure remote builders via 'builders'
+error: Cannot build '/nix/store/mk7clzgw6phdi0q19ib093pf1l3xvgd0-nix-shell-env.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/az943rwg1m28s2bl00saj6qa9ab2lcr0-nix-shell-env

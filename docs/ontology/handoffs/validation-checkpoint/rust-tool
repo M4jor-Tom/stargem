@@ -1,0 +1,5 @@
+#!/run/current-system/sw/bin/bash
+set -eu
+tool=$1
+shift
+exec /nix/store/ias8xacs1h3jy7xgwi2awvim61k2ji6c-glibc-2.42-67/lib/ld-linux-x86-64.so.2 --library-path /home/theta/.rustup/toolchains/1.92.0-x86_64-unknown-linux-gnu/lib:/nix/store/0iv8glcslgfcgn371lbjr5jjw5a6cqir-gcc-15.3.0-lib/lib:/nix/store/78x9i5x1wpqw4kq0h39b8f35abcv156h-zlib-1.3.2/lib /home/theta/.rustup/toolchains/1.92.0-x86_64-unknown-linux-gnu/bin/"$tool" "$@"

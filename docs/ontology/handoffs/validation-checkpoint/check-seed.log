@@ -1,0 +1,9 @@
+active_modules.json: 5 unique kebab-case IDs
+damage_types.json: 3 unique kebab-case IDs
+game_modes.json: 4 unique kebab-case IDs
+missiles.json: 3 unique kebab-case IDs
+passive_modules.json: 8 unique kebab-case IDs
+ship_models.json: 9 unique kebab-case IDs
+special_modules.json: 9 unique kebab-case IDs
+weapons.json: 5 unique kebab-case IDs
+PASS: 8 files, 46 records, 172 finite f32-representable numeric inputs, 389 unambiguous object keys

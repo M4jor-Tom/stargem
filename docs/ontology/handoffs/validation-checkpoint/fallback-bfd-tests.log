@@ -1,0 +1,83 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.24
+   Compiling libm v0.2.16
+   Compiling autocfg v1.5.1
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling serde_json v1.0.151
+   Compiling bytemuck v1.25.2
+   Compiling serde v1.0.229
+   Compiling safe_arch v1.2.0
+   Compiling heapless v0.8.0
+   Compiling itoa v1.0.18
+   Compiling memchr v2.8.3
+   Compiling byteorder v1.5.0
+   Compiling foldhash v0.2.0
+   Compiling hash32 v0.3.1
+   Compiling wide v1.7.0
+   Compiling num-traits v0.2.19
+   Compiling stable_deref_trait v1.2.1
+   Compiling syn v3.0.5
+   Compiling smallvec v1.16.0
+   Compiling approx v0.5.1
+   Compiling num-complex v0.4.6
+   Compiling thiserror v2.0.20
+   Compiling allocator-api2 v0.2.21
+   Compiling equivalent v1.0.2
+   Compiling glam v0.33.6
+   Compiling hashbrown v0.16.1
+   Compiling syn v2.0.119
+   Compiling robust v1.2.0
+   Compiling log v0.4.34
+   Compiling spade v2.15.1
+   Compiling ena v0.14.4
+   Compiling rstar v0.13.0
+   Compiling ordered-float v5.5.0
+   Compiling hashbrown v0.17.1
+   Compiling bitflags v2.13.1
+   Compiling static_assertions v1.1.0
+   Compiling either v1.18.0
+   Compiling slab v0.4.12
+   Compiling downcast-rs v2.0.2
+   Compiling arrayvec v0.7.8
+   Compiling simba v0.10.2
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.20
+   Compiling num-derive v0.4.2
+   Compiling glamx v0.3.0
+   Compiling parry3d v0.30.2
+   Compiling stargem-ontology v0.1.0 (/home/theta/repos/stargem.nix/ontology)
+   Compiling sim v0.1.0 (/home/theta/repos/stargem.nix/sim)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 09s
+     Running unittests src/lib.rs (/home/theta/.pi-game-dev/sessions/--home-theta-repos-stargem.nix--/subagent-artifacts/outputs/08aa52d7-d2a2-4091-b856-28049dd1b39f/audit/scratch-validation/fallback-target/debug/deps/sim-ad619d4fd5df0f8a)
+
+running 3 tests
+test tests::ship_is_pushed_out_of_an_obstacle ... ok
+test tests::yaw_turns_the_nose ... ok
+test tests::throttle_reaches_cap_and_drag_stops ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests model.rs (/home/theta/.pi-game-dev/sessions/--home-theta-repos-stargem.nix--/subagent-artifacts/outputs/08aa52d7-d2a2-4091-b856-28049dd1b39f/audit/scratch-validation/fallback-target/debug/deps/stargem_ontology-43079a4b63b69e3d)
+
+running 4 tests
+test tests::role_tables_cover_every_role ... ok
+test tests::bought_ship_is_valid_and_loadout_rules_hold ... ok
+test tests::hangar_rules ... ok
+test tests::instances_satisfy_catalog_constraints ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sim
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests stargem_ontology
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,80 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling libm v0.2.16
+   Compiling autocfg v1.5.1
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.47
+   Compiling bytemuck v1.25.2
+   Compiling serde_core v1.0.229
+   Compiling foldhash v0.2.0
+   Compiling heapless v0.8.0
+   Compiling safe_arch v1.2.0
+   Compiling zmij v1.0.23
+   Compiling byteorder v1.5.0
+   Compiling equivalent v1.0.2
+   Compiling allocator-api2 v0.2.21
+   Compiling num-traits v0.2.19
+   Compiling hash32 v0.3.1
+   Compiling thiserror v2.0.20
+   Compiling serde v1.0.229
+   Compiling wide v1.7.0
+   Compiling stable_deref_trait v1.2.1
+   Compiling smallvec v1.16.0
+   Compiling serde_json v1.0.151
+   Compiling syn v3.0.5
+   Compiling syn v2.0.119
+   Compiling hashbrown v0.16.1
+   Compiling approx v0.5.1
+   Compiling num-complex v0.4.6
+   Compiling glam v0.33.6
+   Compiling memchr v2.8.3
+   Compiling itoa v1.0.18
+   Compiling log v0.4.34
+   Compiling robust v1.2.0
+   Compiling ena v0.14.4
+   Compiling rstar v0.13.0
+   Compiling spade v2.15.1
+   Compiling ordered-float v5.5.0
+   Compiling hashbrown v0.17.1
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.20
+   Compiling num-derive v0.4.2
+   Compiling bitflags v2.13.1
+   Compiling static_assertions v1.1.0
+   Compiling downcast-rs v2.0.2
+   Compiling arrayvec v0.7.8
+   Compiling slab v0.4.12
+   Compiling either v1.18.0
+   Compiling stargem-ontology v0.1.0 (/home/theta/repos/stargem.nix/ontology)
+   Compiling simba v0.10.2
+   Compiling glamx v0.3.0
+   Compiling parry3d v0.30.2
+   Compiling sim v0.1.0 (/home/theta/repos/stargem.nix/sim)
+   Compiling ontology-audit-probe v0.0.0 (/home/theta/.pi-game-dev/sessions/--home-theta-repos-stargem.nix--/subagent-artifacts/outputs/08aa52d7-d2a2-4091-b856-28049dd1b39f/audit/scratch-validation/probe)
+    Finished `release` profile [optimized] target(s) in 41.30s
+     Running unittests src/lib.rs (/home/theta/.pi-game-dev/sessions/--home-theta-repos-stargem.nix--/subagent-artifacts/outputs/08aa52d7-d2a2-4091-b856-28049dd1b39f/audit/scratch-validation/fallback-target/release/deps/ontology_audit_probe-cffe473ca687d77b)
+
+running 12 tests
+JSON 1e39 -> speed=inf -> position=Vec3(NaN, NaN, -inf)
+256 repeats: validator accepted; shield=393000
+test tests::effective_stats_returns_invalid_result_but_loadout_check_rejects_it ... ok
+test tests::duplicate_damage_and_special_are_not_rejected ... ok
+test tests::finite_legal_deltas_can_overflow_the_effective_sum ... ok
+test tests::finite_json_1e39_becomes_infinity_and_passes_into_flight ... ok
+test tests::passive_count_256_panics_in_debug_or_is_accepted_in_release ... ok
+test tests::rejection_controls_for_refs_multiplicity_ranges_and_hangar ... ok
+test tests::runtime_nan_facets_and_passive_modifiers_are_accepted ... ok
+test tests::required_unknown_fields_id_grammar_and_map_conventions ... ok
+test tests::seed_all_stock_and_enum_coverage ... ok
+test tests::thermal_100_100_passes_despite_not_near_one ... ok
+test tests::catalog_load_and_buy_do_not_validate_stock ... ok
+capacity-legal passive multisets checked = 7686
+test tests::seed_every_capacity_legal_passive_multiset_has_valid_stats ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests ontology_audit_probe
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

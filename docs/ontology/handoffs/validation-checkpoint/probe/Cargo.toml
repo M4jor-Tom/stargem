@@ -1,0 +1,9 @@
+[package]
+name = "ontology-audit-probe"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+ontology = { package = "stargem-ontology", path = "/home/theta/repos/stargem.nix/ontology" }
+serde_json = "1"
+sim = { path = "/home/theta/repos/stargem.nix/sim" }

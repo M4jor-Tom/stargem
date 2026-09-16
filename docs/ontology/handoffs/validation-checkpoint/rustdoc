@@ -1,0 +1,2 @@
+#!/run/current-system/sw/bin/bash
+exec "$(dirname "$0")/rust-tool" rustdoc "$@"
