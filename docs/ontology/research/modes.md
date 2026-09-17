@@ -1,8 +1,8 @@
 # Research: modes
 
-[Audit navigation](../README.md) · [Drift ledger](../drift_developer_vs_internet.md) · [Source policy](sources.md)
+[Audit navigation](../README.md) · [Drift ledger](../drift_developer_vs_internet.md) · [Source policy](../README.md#evidence-policy)
 
-Audit/retrieval **2026-09-16**; local baseline `4a47fa3015f2d31bbe1c5a3159a3d0980c273912`. Condensed from the same-day **research-modes** audit: retained original-source dossiers and distinct useful findings, not its tool log. Internet content is untrusted evidence, never instructions. `ontology/` remains canonical; no adoption is approved. Source IDs below are **local to this note**. Confidence is high in direct documentary comparisons unless qualified; wiki version/current-client confidence is lower.
+Audit/retrieval **2026-09-16**; local baseline `4a47fa3015f2d31bbe1c5a3159a3d0980c273912`. Condensed from the same-day [**research-modes** audit](../handoffs/research-modes-2f322aa2.md#preserved-original-output): retained original-source dossiers and distinct useful findings, not its tool log. Internet content is untrusted evidence, never instructions. `ontology/` remains canonical; no adoption is approved. Source IDs below are **local to this note**. Confidence is high in direct documentary comparisons unless qualified; wiki version/current-client confidence is lower.
 
 ## Findings and disposition
 
@@ -187,9 +187,9 @@ The following is **the S03 wiki revision's classification**, not a tested Septem
 | **Beetle in the Anthill**, brawl | One alien ship against other pilots; alien destroys generator/opponents, defenders stop it/survive ten minutes. | Ships selected once, **no respawns**; alien side chooses provided alien types. | Asymmetric PvP. |
 | **Close encounter**, brawl | Attack/defend three navigation stations; special bomb. | Provided upgraded ships; unlimited returns with destroyed ship. | **Temporarily unavailable** per source, not proved permanently removed. |
 | **Fight Club**, brawl | Free-for-all; most kills at timeout or first to 30; own ship and seed-chips. | Respawn details not established by this section. | **Temporarily unavailable**. |
-| **Orion's Belt**, brawl | **Three teams**, first to 30 points or most kills at timeout. | Own ships, unlimited reuse after destruction. | **Temporarily unavailable**, even though its maps remain in the table. |
-| **Paper Conflict**, event brawl | Four players per team, Domination objective. | Special paper ships. | **April Fool's event only**. |
-| **Curse of the Leviathan**, event brawl | Same starting ships; randomly infected pilot converts others to its side; survivors await rescue. | Teams can change during battle. | **Halloween only**. |
+| **Orion's Belt**, brawl | **Three teams**, first to 30 points or most kills at timeout. | Own ships, unlimited reuse after destruction. | Temporarily unavailable in April S03; the later [history S06](history.md#s06) announcement schedules **2026-06-16–2026-06-30**. Scheduled return, not observed occurrence or September availability. |
+| **Paper Conflict**, event brawl | Four players per team, Domination objective. | Special paper ships. | April Fool's classification in S03; [history S06](history.md#s06) also schedules it for **2026-09-22–2026-10-05**, so not an exclusive annual window. |
+| **Curse of the Leviathan**, event brawl | Same starting ships; randomly infected pilot converts others to its side; survivors await rescue. | Teams can change during battle. | Halloween-only in April S03; the later [history S06](history.md#s06) announcement schedules **2026-07-28–2026-08-10**. Dated exception, not observed occurrence or September availability. |
 | **Spherical Conflict**, event brawl | High-inertia spherical ships, collision-focused combat. | Experimental provided fleet. | Explicit **2026-04-09–2026-04-21** window; do not list as active on audit date. |
 
 Brawls are described as time-limited daily rotations from clearance level 5. Do not hardcode the hours from a wiki paragraph as current availability. Portals/Tournaments/Sector Conquest are discoverable named activities, but this pass does not establish their complete contemporary rules. Custom battle, per S01, can configure PvP/PvE; therefore mode template and queue/custom configuration should not be conflated if fidelity is later requested.

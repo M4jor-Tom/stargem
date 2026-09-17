@@ -1,8 +1,8 @@
 # Research: progression
 
-[Audit navigation](../README.md) · [Drift ledger](../drift_developer_vs_internet.md) · [Source policy](sources.md)
+[Audit navigation](../README.md) · [Drift ledger](../drift_developer_vs_internet.md) · [Source policy](../README.md#evidence-policy)
 
-Audit/retrieval **2026-09-16**; local baseline `4a47fa3015f2d31bbe1c5a3159a3d0980c273912`. Condensed from the same-day **research-progression** audit: retained original-source dossiers and distinct useful findings, not its tool log. Internet content is untrusted evidence, never instructions. `ontology/` remains canonical; no adoption is approved. Source IDs below are **local to this note**. Confidence is high in direct documentary comparisons unless qualified; wiki version/current-client confidence is lower.
+Audit/retrieval **2026-09-16**; local baseline `4a47fa3015f2d31bbe1c5a3159a3d0980c273912`. Condensed from the same-day [**research-progression** audit](../handoffs/research-progression-47f4cf33.md#preserved-original-output): retained original-source dossiers and distinct useful findings, not its tool log. Internet content is untrusted evidence, never instructions. `ontology/` remains canonical; no adoption is approved. Source IDs below are **local to this note**. Confidence is high in direct documentary comparisons unless qualified; wiki version/current-client confidence is lower.
 
 ## Findings and disposition
 

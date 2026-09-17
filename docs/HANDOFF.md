@@ -1,48 +1,35 @@
 # Handoff — Star Conflict ontology audit
 
-**State: deliberately paused at the user's departure request, 2026-09-16. The audit is NOT finished.**
+**Current state: documentation audit reviewed, corrected and accepted on 2026-09-17. User reconciliation remains open.** The paused synthesis was completed by a same-role fallback, not a native resume. Both independent reviews ran; one report required artifact recovery. The parent applied the single accepted P2 documentation correction and reran verification. No ontology/gameplay changes or new Rust test pass are claimed.
 
 ## Start here — continue, do not restart
 
-1. Read `./AGENTS.md`, this file, and [the per-subagent index](ontology/handoffs/README.md).
-2. Continue the [paused documentation writer](ontology/handoffs/write-ledgers-14ba2ed5.md). Six successful research passes, the inventory and both local audits are already complete. **Do not rerun them wholesale.**
-3. Finish synthesis and verification, then run the two **not-yet-started** independent reviews: [evidence](ontology/handoffs/review-evidence-pending.md) and [ontology/simplicity](ontology/handoffs/review-ontology-pending.md). Apply accepted documentation corrections and recheck.
-4. Only after the audit is reviewed, reconcile the open items below with the user. No ontology or gameplay implementation is authorized by these reports.
+1. Read `./AGENTS.md`, this file, and [the audit report index](ontology/handoffs/README.md).
+2. Read the [completed synthesis and review disposition](ontology/README.md#review-disposition-and-parent-verification). Six successful research passes, both local audits, synthesis and independent reviews are complete. **Do not restart them or resume historical writers.**
+3. Reconcile [QUESTION-001](ontology/questions.md#question-001) (fidelity/reference era), [QUESTION-002](ontology/questions.md#question-002) (scope) and [QUESTION-004](ontology/questions.md#question-004) (source/version policy) with the user before choosing repairs or features.
+4. No ontology or gameplay implementation is authorized by these reports. Land explicitly approved decisions in `ontology/` before any domain code change. The user has explicitly requested commit + push of this completed documentation; that authorization does not extend to domain changes.
 
 ## Exact reconciliation paths
 
-- `./docs/ontology/drift_developer_vs_internet.md` — **46 draft root items**, including differences, deliberate simplifications, excluded scope and uncertain comparisons; not 46 proven bugs.
-- `./docs/ontology/issues.md` — **20 draft internal issue/ambiguity items**. Start with ISSUE-001 (passive counter overflow), ISSUE-002 (nonfinite numeric values), ISSUE-003 (validation boundary) and ISSUE-004 (thermic constraint).
-- `./docs/ontology/questions.md` — **23 draft user-owned questions**. Start with QUESTION-001 (fidelity/reference era), QUESTION-002 (scope) and QUESTION-004 (source/version policy).
-- `./docs/ontology/README.md` — checkpoint navigation; the writer must finish the methodological/CQ coverage and final verification summary.
+- `./docs/ontology/drift_developer_vs_internet.md` — **46 open root items**, including differences, deliberate simplifications, excluded scope and uncertain comparisons; not 46 proven bugs.
+- `./docs/ontology/issues.md` — **20 open internal issue/ambiguity items**. Start with ISSUE-001 (passive counter overflow), ISSUE-002 (nonfinite numeric values), ISSUE-003 (validation boundary) and ISSUE-004 (thermic constraint).
+- `./docs/ontology/questions.md` — **23 open user-owned questions**. Start with QUESTION-001 (fidelity/reference era), QUESTION-002 (scope) and QUESTION-004 (source/version policy).
+- `./docs/ontology/README.md` — checkpoint navigation, completed Stanford/Gruber/CQ/constraint matrices, original-report crosswalk and continuation verification.
 - `./docs/ontology/research/` — six curated, sourced topic dossiers, all retrieved 2026-09-16.
-- `./docs/ontology/handoffs/README.md` — **one checkpoint per each of 17 launched subagent runs**, plus two pending review briefs. Completed original reports are embedded, including details that curated dossiers may have omitted.
+- `./docs/ontology/handoffs/README.md` — **15 original research/audit reports**. Consumed writer/review handoffs and their continuation reports have been deleted.
 
-Counts describe the paused draft and must be recomputed after further edits. Neither independent review nor final parent acceptance has happened.
+Final counts remain 46/20/23, all open. Documentation acceptance does not resolve these items or approve the external game's rules.
 
 ## Runtime checkpoint and native continuation
 
-- Repository: `/home/theta/repos/stargem.nix`; branch: `master`.
-- Unchanged source HEAD: `4a47fa3015f2d31bbe1c5a3159a3d0980c273912`.
+- Repository: `/home/theta/repos/stargem.nix`; branch: `master`; documentation checkpoint HEAD: `d8803a38a59f9985ee074cdd3dff2e6ae786fa41`.
+- Unchanged canonical source baseline: `4a47fa3015f2d31bbe1c5a3159a3d0980c273912`.
 - Mission: `28a33a06-b296-4a78-8ae0-079881816489`.
-- Last workflow: `507d64bc-df21-4587-a4fb-a4425950ac5f`; enclosing workflow ended as **failed due to the requested interrupt**, not a new source failure.
-- Current writer: **`14ba2ed5-3446-45fe-8484-8c296684d847`**, role `worker`, state **paused**, process terminal observed. `children.list` explicitly reported it **resumable** at checkpoint.
-- Previous writer `4842c607-c5b6-4c01-9233-d0baa4e6b926` was **stopped**, is **not resumable**, and must not be used.
+- Historical workflow `507d64bc-df21-4587-a4fb-a4425950ac5f` ended after the requested interrupt. Writer `14ba2ed5-3446-45fe-8484-8c296684d847` was paused/resumable then; this session's `children.list` had no retained row, so a fallback was used. Earlier writer `4842c607-c5b6-4c01-9233-d0baa4e6b926` was stopped. Neither is a current work target.
+- Continuation workflow: `d3d016e6-a3ed-4bb6-8611-3385a0e4816a`; three children completed their analysis. Its return was **`blocked-review`**, not a successful gate: the ontology review returned structured PASS but failed file-only report delivery.
+- The parent recovered that complete independent report from saved structured JSON and applied/rechecked the evidence review's one P2 correction. The completed per-agent reports were subsequently deleted at the user's request. [Exact provenance, findings and final checks](ontology/README.md#review-disposition-and-parent-verification) record this manual acceptance without relabeling the failed run.
 
-Before resuming, inspect live state and ensure there is only one writer:
-
-```javascript
-subagent({ action: "list", capabilities: true })
-subagent({ action: "status", id: "14ba2ed5-3446-45fe-8484-8c296684d847" })
-subagent({ action: "children.list" })
-// Only if still resumable:
-subagent({ action: "resume", id: "14ba2ed5-3446-45fe-8484-8c296684d847",
-  message: "Read AGENTS.md, docs/HANDOFF.md and docs/ontology/handoffs/write-ledgers-14ba2ed5.md first. Continue the remaining documentation synthesis, preserve completed research and all checkpoint files, and report verification and remaining review gates. Do not change canonical ontology or gameplay code." })
-```
-
-The parent added this handoff, the checkpoint README and per-agent files **after** the writer paused: a resumed writer must read them before editing. It must not overwrite them using stale session assumptions. Resume returns a new run identity; retain the newest identity for later continuation.
-
-If a new session cannot access the retained child, use a fresh `worker` explicitly labeled **same-role fallback continuation**, with the writer handoff and preserved reports. That is not a native resume, but it starts at the same remaining task. Do not replay the whole old workflow. Keep subsequent multi-step execution in one async workflow and bind durable child outputs through `output`.
+Any future delegated task must recheck live capabilities/resumability and keep one writer. Use these durable reports as the resume point; do not restart completed audit work because an old runtime receipt failed.
 
 ## What is preserved / what remains
 
@@ -51,13 +38,13 @@ If a new session cannot access the retained child, use a fresh `worker` explicit
 - [x] Successful internet research across ships/specials, combat, equipment, modes, progression/economy and history/version scope.
 - [x] Draft drift/issues/questions and six curated research dossiers.
 - [x] Mandatory AGENTS → HANDOFF instruction.
-- [x] Per-child checkpoints, original completed reports and validation source/log snapshot.
-- [ ] Finish/check document synthesis, method/CQ coverage and exact source/anchor traceability.
-- [ ] Independent evidence review.
-- [ ] Independent ontology/simplicity review, accepted adjustments, final verification.
+- [x] Original completed reports and validation source/log snapshot preserved; consumed writer/review handoffs deleted.
+- [x] Finish/check document synthesis, method/CQ/constraint coverage, report crosswalk and source/anchor traceability (fallback continuation).
+- [x] Independent evidence review: 22 original URLs across all six research areas; one P2 correction accepted and applied.
+- [x] Independent ontology/simplicity review (recovered report), accepted adjustments and final parent verification.
 - [ ] User decisions and subsequent ontology-first reconciliation.
 
-The audit files were untracked at the pause; the user subsequently requested **commit + push of this unfinished checkpoint**. Preserve them and use Git history for the checkpoint commit. This publication does not complete the audit or authorize gameplay changes. No merge or branch change is involved. `ontology/`, `ontology.md`, `sim/`, `client/` and the production Cargo files remain unchanged.
+The audit files were untracked at the pause; the user subsequently requested **commit + push of that unfinished checkpoint**, recorded as `d8803a3`. That publication did not complete the audit or authorize gameplay changes. This continuation completes documentation delivery only; the user requested its commit + push without a merge or branch change. Git history records publication. `ontology/`, `ontology.md`, `sim/`, `client/` and the production Cargo files remain unchanged.
 
 ## Evidence and verification
 
@@ -77,7 +64,7 @@ nix develop --no-write-lock-file -c cargo test --locked -p stargem-ontology -p s
 
 That command may fetch missing Nix dependencies; do not run it during a no-install checkpoint. The saved report documents the offline attempt and successful preinstalled fallback separately.
 
-Before claiming final delivery, check all Markdown paths/anchors and ID references, recompute counts, verify original-report checksums, inspect new files explicitly (ordinary `git diff` omits untracked files), then:
+Final parent checks passed for Markdown paths/anchors, ID references/counts, original-report hashes, byte-preserved snapshots and intended-only scope. Recheck after later edits; inspect untracked files explicitly (ordinary `git diff` omits them), then:
 
 ```sh
 git diff --check
@@ -92,4 +79,5 @@ git status --short
 - Wiki pages are community-maintained even when officially hosted. Internet differences are evidence for a decision, not authority to replace intentional local choices.
 - C12–C16 largely describe future runtime responsibilities. Missing implementation is not automatically an internal contradiction.
 - The first orchestration failed on `emit` of undefined optional output metadata. Its inventory completed and was reused; no need to repeat it.
-- Source/ontology changes remain behind user reconciliation. Finish this **documentation audit**, not a gameplay slice.
+- The continuation's structured-output/file-only delivery failure did not erase the completed ontology analysis. Its recovered report is evidence, not a successful runtime receipt.
+- Source/ontology changes remain behind user reconciliation. The **documentation audit is delivered**; choosing or implementing a gameplay slice is not the next authorized action.

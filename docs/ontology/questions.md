@@ -30,7 +30,7 @@ Audit **2026-09-16**. [Navigation](README.md) · [Internal issues](issues.md) ·
 ## QUESTION-004 — Source/version and conflict policy
 
 - [ ] **Open · decision owner: user**
-- **Context/evidence:** Original articles and wiki revisions were retrieved; their applicability differs. Guided-torpedo duration, range, Singularity classification and signed-resistance notation conflict across sources ([sources](research/sources.md)). Repository dates date local commits only.
+- **Context/evidence:** Original articles and wiki revisions were retrieved; their applicability differs. Guided-torpedo duration, range, Singularity classification and signed-resistance notation conflict across sources ([source policy](README.md#evidence-policy), [combat conflicts](research/combat.md#conflictslimitations-to-retain-instead-of-choosing-silently), [ships conflicts](research/ships.md#conflicts-historical-evidence-and-remaining-questions)). Repository dates date local commits only.
 - **Decision/options and tradeoffs:** Prefer claim-relevant original announcements for changes, storefront for identity, revision-aware wiki for detail; preserve unresolved conflicts. Choose a frozen source snapshot or per-claim validity windows, and durable notes versus gameplay-schema provenance (notes alone suffice unless runtime needs it).
 - **Affected / remains blocked:** [DRIFT-001](drift_developer_vs_internet.md#drift-001), [DRIFT-032](drift_developer_vs_internet.md#drift-032); source-conflict resolution and any adopted version-specific rules remain blocked; official dated historical changes are already evidenced.
 
@@ -51,11 +51,11 @@ Audit **2026-09-16**. [Navigation](README.md) · [Internal issues](issues.md) ·
 - **Affected / remains blocked:** [ISSUE-004](issues.md#issue-004); exact acceptance thresholds blocked, current defect established independently.
 
 <a id="question-007"></a>
-## QUESTION-007 — Identity of specials and their definition rows
+## QUESTION-007 — Identity of damage and special definition rows
 
 - [ ] **Open · decision owner: user**
-- **Context/evidence:** ontology/domain.md:196 currently fixes role↔special kind; model.rs:299 checks presence only.
-- **Decision/options and tradeoffs:** Preserve exact role-derived specials and one definition per kind; if intentionally reopening, decide whether kind means family/default with approved model-level alternatives. Versioned multiple rows need an explicit selector, not first-match ambiguity.
+- **Context/evidence:** ontology/domain.md:69–71 gives damage properties and :196 fixes role↔special kind; model.rs:268 selects the first damage row and :299 checks special presence only.
+- **Decision/options and tradeoffs:** Preserve one damage definition per DamageKind and one special definition per SpecialModuleKind, retaining exact role-derived specials; or explicitly define versioned identity/selection if multiple rows are intended. If intentionally reopening the special mapping, decide whether kind means family/default with approved model-level alternatives. Versioned multiple rows need an explicit selector, not first-match ambiguity.
 - **Affected / remains blocked:** [ISSUE-005](issues.md#issue-005), [DRIFT-003](drift_developer_vs_internet.md#drift-003); definition uniqueness and any source-backed variant design require explicit reconciliation.
 
 <a id="question-008"></a>
@@ -78,8 +78,8 @@ Audit **2026-09-16**. [Navigation](README.md) · [Internal issues](issues.md) ·
 ## QUESTION-010 — Authorize canonical documentation-only reconciliation
 
 - [ ] **Open · decision owner: user**
-- **Context/evidence:** ontology/domain.md:4 stale path, :240 mutability scope, :275 instance wording; authority of ontology/ is settled.
-- **Decision/options and tradeoffs:** Approve a later narrow correction of path, instance terminology and persistent-versus-runtime mutability wording, separately from behavioral decisions; or defer with known issues. No request to restate canonical authority.
+- **Context/evidence:** ontology/domain.md:4 stale path, :240 mutability scope, :275 instance wording; authority of ontology/ is settled. [History H09](handoffs/research-history-38963aa2.md#h09--immutable-catalog-versus-changing-upstream-game-is-not-inherently-incoherent) retains the distinct catalog-version scope question, not an upstream-change contradiction.
+- **Decision/options and tradeoffs:** Approve a later narrow correction of path, instance terminology and persistent-versus-runtime mutability wording (including whether catalog immutability is per released snapshot rather than across authored versions), separately from behavioral decisions; or defer with known issues. No request to restate canonical authority.
 - **Affected / remains blocked:** [ISSUE-010](issues.md#issue-010), [ISSUE-011](issues.md#issue-011), [ISSUE-012](issues.md#issue-012) and checker attribution [ISSUE-006](issues.md#issue-006); audit cannot edit canonical files.
 
 <a id="question-011"></a>

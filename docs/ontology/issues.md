@@ -1,6 +1,6 @@
 # Internal ontology and validation issues
 
-Audit: **2026-09-16**, baseline `4a47fa3015f2d31bbe1c5a3159a3d0980c273912`. All items open; no repairs authorized or made. [Navigation](README.md) · [Questions](questions.md) · [Execution evidence](validation.md).
+Audit: **2026-09-16**, baseline `4a47fa3015f2d31bbe1c5a3159a3d0980c273912`. All items open; no repairs authorized or made. [Navigation](README.md) · [Questions](questions.md) · [Execution evidence](handoffs/audit-validation-7c6d92a5.md#execution-evidence-and-limitations).
 
 P1: resolve before relying on newly authored data/loadout boundaries. P2: correctness or specification gate for affected work. P3: clarity/traceability. These priorities synthesize the two local audits: numerical JSON propagation raises nonfinite handling to P1; the present client bypass is P1; thermic/enum authoring issues are P2. Passing seed tests do **not** establish ontology coherence.
 
